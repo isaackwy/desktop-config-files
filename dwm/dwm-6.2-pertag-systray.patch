@@ -12,7 +12,7 @@ index 1c0b587..2d824d1 100644
 +static const int showsystray        = 1;     /* 0 means no systray */
  static const int showbar            = 1;        /* 0 means no bar */
  static const int topbar             = 1;        /* 0 means bottom bar */
- static const char *fonts[]          = { "noto sans:size=10" };
+ static const char *fonts[]          = { "monospace:size=10" };
 --- a/dwm.c	2019-07-01 11:27:56.155762729 -0700
 +++ b/dwm.c	2019-07-01 13:08:18.575566201 -0700
 @@ -57,12 +57,30 @@
