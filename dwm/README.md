@@ -1,5 +1,7 @@
 Various patches for dwm: https://dwm.suckless.org/
 
+I wrote dwm-arc-darker-6.2.patch. It simply customizes the dwm theme.
+
 dwm-bottomstack-systray-6.2.patch combines the bottomstack and systray patches.
 dwm-pertag-systray-6.2.patch combines the pertag and systray patches.
 
