@@ -1,5 +1,3 @@
-Various patches for dwm: https://dwm.suckless.org/
-
 dwm-custom-6.2.patch combines the systray, bottomstack and tab patches.
 
 https://dwm.suckless.org/patches/systray/dwm-systray-20190208-cb3f58a.diff
