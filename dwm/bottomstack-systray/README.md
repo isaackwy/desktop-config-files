@@ -4,4 +4,4 @@ https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-20160719-56a31dc.di
 https://dwm.suckless.org/patches/systray/dwm-systray-6.2.diff
 
 Anselm R Garbe (anselm@garbe.us) and Laslo Hunhold (dev@frign.de) wrote the bottomstack patch.  
-Igor Gevka (igor.gevka@gmail.com) wrote the systray patck
+Igor Gevka (igor.gevka@gmail.com) wrote the systray patch.
