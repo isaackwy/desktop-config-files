@@ -1,4 +1,4 @@
-externalpipe-merged.patch, written for st 0.8.3, combines the externalpipe and scrollback patches.
+externalpipe-merged.patch (written for st 0.8.3) combines the externalpipe and scrollback patches.
 
 https://st.suckless.org/patches/scrollback/st-scrollback-20200419-72e3f6c.diff  
 https://st.suckless.org/patches/externalpipe/st-externalpipe-0.8.2.diff  
