@@ -51,7 +51,7 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -55,14 +73,23 @@
+@@ -55,14 +73,22 @@
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
  /* commands */
@@ -62,10 +62,9 @@
 +static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", NULL };
 +static const char scratchpadname[] = "scratchpad";
 +static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x16", NULL };
-+static const char *lockcmd[] = { "xscreensaver-command", "-lock", NULL };
++static const char *lockcmd[] = { "xscreensaver-command -lock", NULL };
 +static const char *raisevolume[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%", NULL };
 +static const char *lowervolume[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%", NULL };
-+static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/bin/Shutdown.sh", NULL } ;
  
  static Key keys[] = {
  	/* modifier                     key        function        argument */
@@ -79,7 +78,7 @@
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -76,6 +103,8 @@
+@@ -76,6 +102,8 @@
  	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -88,7 +87,7 @@
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-@@ -84,6 +113,9 @@
+@@ -84,6 +112,9 @@
  	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -98,15 +97,6 @@
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,7 +125,7 @@
- 	TAGKEYS(                        XK_7,                      6)
- 	TAGKEYS(                        XK_8,                      7)
- 	TAGKEYS(                        XK_9,                      8)
--	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = shutdowncmd } },
- };
- 
- /* button definitions */
 --- dwm-6.2/dwm.1	2019-02-02 12:55:28.000000000 +0000
 +++ b/dwm.1	2019-04-13 21:12:25.685674235 +0100
 @@ -62,7 +62,7 @@
