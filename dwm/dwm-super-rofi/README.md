@@ -12,6 +12,8 @@ replace-dmenu-rofi: https://slackbuilds.org/slackbuilds/14.2/desktop/dwm/sbo-pat
 
 However, this patch does not contain the bstackhoriz and centeredfloatingmaster layouts.
 
+This patch assumes a shutdown script at $HOME/bin/Shutdown.sh by default.
+
 Credits for each patch are available at the Suckless Tools website.  
 However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds.org  
 (Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)
@@ -22,7 +24,6 @@ However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds
 + `Win-Shift-KP_Up`: **increase volume by 1**  
 + `Win-Shift-KP_Down`: **decrease volume by 1**  
 + `Win-Shift-q`: **spawn dwm shutdown prompt (instead of closing dwm)**  
-The shutdown prompt is available at $HOME/bin/Shutdown.sh
 
 ## Layouts  
 + `Win-u`: **bottomstack layout**  
