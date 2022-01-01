@@ -12,7 +12,7 @@ replace-dmenu-rofi: https://slackbuilds.org/slackbuilds/14.2/desktop/dwm/sbo-pat
 
 However, this patch does not contain the bstackhoriz and centeredfloatingmaster layouts.
 
-This patch assumes a shutdown script at $HOME/bin/Shutdown.sh by default.
+By default, this patch assumes a shutdown script is available at $HOME/bin/Shutdown.sh.
 
 Credits for each patch are available at the Suckless Tools website.  
 However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds.org  
