@@ -14,4 +14,4 @@ However, this patch does not contain the bstackhoriz and centeredfloatingmaster 
 
 Credits for each patch are available at the Suckless Tools website.  
 However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds.org  
-(Dave Woodfall proved these 2 patches - he is the maintainer of the dwm SlackBuild.)  
+(Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)  
