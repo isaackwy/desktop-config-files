@@ -21,7 +21,7 @@ However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds
 + `Win-x`: **lock screen with xscreensaver**  
 + `Win-Shift-KP_Up`: **increase volume by 1**  
 + `Win-Shift-KP_Down`: **decrease volume by 1**  
-+ `Win-Shift-q`: **spawn dwm shutdown prompt (instead of closing dwm)**  
++ `Win-Shift-q`: **spawn dwm shutdown prompt at $HOME/bin/Shutdown.sh (instead of closing dwm)**  
 
 ## Layouts  
 + `Win-u`: **bottomstack layout**  
