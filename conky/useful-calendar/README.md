@@ -1,4 +1,4 @@
-conky config files  
+Prints a calendar along with system info (e.x. cpu temperature)
 
 Calendar for the current month is heavily based on a tip from Arch Linux wiki:  
 https://wiki.archlinux.org/title/Conky/Tips_and_tricks#Display_a_calendar_for_the_current_month  
