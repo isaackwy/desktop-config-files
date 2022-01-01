@@ -14,4 +14,18 @@ However, this patch does not contain the bstackhoriz and centeredfloatingmaster 
 
 Credits for each patch are available at the Suckless Tools website.  
 However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds.org  
-(Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)  
+(Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)
+
+## Extra shortcuts  
++ `Win-``: **scratchpad**  
++ `Win-x`: **lock screen with xscreensaver**  
++ `Win-Shift-KP_Up: **increase volume by 1**  
++ `Win-Shift-KP_Down: **decrease volume by 1**  
++ `Win-Shift-q`: **spawn dwm shutdown prompt (instead of closing dwm)**  
+
+## Layouts  
++ `Win-u`: **bottomstack layout**  
++ `Win-o`: **centered master layout**  
++ `Win-equal`: **increase gaps by 5**  
++ `Win-minus`: **decrease gaps by 5**  
++ `Win-Shift-minus`: **reset gaps to 0**  
