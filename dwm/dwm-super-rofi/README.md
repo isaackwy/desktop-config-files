@@ -17,7 +17,7 @@ However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds
 (Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)
 
 ## Extra shortcuts  
-+ `Win-`` `: **scratchpad**  
++ ``Win-` ``: **scratchpad**  
 + `Win-x`: **lock screen with xscreensaver**  
 + `Win-Shift-KP_Up`: **increase volume by 1**  
 + `Win-Shift-KP_Down`: **decrease volume by 1**  
