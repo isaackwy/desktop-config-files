@@ -16,7 +16,7 @@ By default, this patch assumes that a shutdown script is available at $HOME/bin/
 
 Credits for each patch are available at the Suckless Tools website.  
 However, the use-mod4 and replace-dmenu-rofi patches are provided by slackbuilds.org  
-(Dave Woodfall provided these 2 patches - he is the maintainer of the dwm SlackBuild.)
+(Dave Woodfall is the maintainer of the dwm SlackBuild.)
 
 ## Extra shortcuts  
 + `` Win-` ``: **scratchpad**  
