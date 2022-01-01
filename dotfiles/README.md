@@ -1,1 +1,1 @@
-Various conky config files
+Various config files for my desktop
