@@ -11,3 +11,5 @@ Colors are:
 + orange for CPU temperature (Ryzen)
 + red for GPU fan speed and temperature (AMD)
 + blue for NVMe temperature (WD Blue)
+
+When using these config files for conky, please make cal.lua executable.
