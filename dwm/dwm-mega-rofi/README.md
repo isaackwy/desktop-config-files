@@ -34,10 +34,16 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 + `Win-Shift-KP_Down`: **decrease volume by 1**  
 
 ## Layouts  
+
+Layouts are in the following order:
++ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
+
 + `Win-u`: **bottomstack layout**  
 + `Win-g`: **gaplessgrid layout**  
++ `Win-Shift-KP_Right`: **cycle to next layout**
++ `Win-Shift-KP_Left`: **cycle to previous layout**
 + `Win-Shift-j`: **shift client toward master by 1 window**  
 + `Win-Shift-k`: **shift client away from master by 1 window**  
 + `Win-equal`: **increase gaps by 5**  
 + `Win-minus`: **decrease gaps by 5**  
-+ `Win-Shift-minus`: **reset gaps to 0**
++ `Win-Shift-minus`: **reset gaps to 0**  
