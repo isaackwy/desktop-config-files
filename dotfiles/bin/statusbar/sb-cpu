@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# This script adds an extra leading space at the beginning of the output as padding.
+
+sensors | awk '/Tctl/ {print " 🌡 " $2}' | sed 's/+//'
