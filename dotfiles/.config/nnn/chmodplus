@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# Description: make file executable or remove executable permission
+# Shell: POSIX Compliant
+if [ -x "$1" ]; then chmod -x "$1"; else chmod +x "$1"; fi 
