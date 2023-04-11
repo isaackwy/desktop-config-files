@@ -36,7 +36,7 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 ## Layouts  
 
 Layouts are in the following order:
-+ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
+tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 
 + `Win-u`: **bottomstack layout**  
 + `Win-g`: **gaplessgrid layout**  
