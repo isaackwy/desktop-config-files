@@ -3,7 +3,7 @@
 # Clickable options. Code taken from Luke Smith:
 # https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-volume
 case $BLOCK_BUTTON in
-	1) setsid -f pavucontrol ;;
+    1) setsid -f pavucontrol ;;
     2) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
     3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted. \n- Middle click to mute. \n- Scroll to change." ;;
     4) pactl set-sink-volume @DEFAULT_SINK@ +2% ;;
