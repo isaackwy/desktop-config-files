@@ -40,9 +40,4 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 + `Win-Shift-k`: **shift client away from master by 1 window**  
 + `Win-equal`: **increase gaps by 5**  
 + `Win-minus`: **decrease gaps by 5**  
-+ `Win-Shift-minus`: **reset gaps to 0** 
-
-## Dependencies
-- [rofi](https://github.com/davatorium/rofi) - of course  
-- [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
-- imlib2 (due to winicon)
++ `Win-Shift-minus`: **reset gaps to 0**
