@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=zathura-tabbed
+Exec=tabbed -c -r 2 zathura -e '2' %f
+Categories=Other;
+NoDisplay=true
+MimeType=application/pdf
+Terminal=false

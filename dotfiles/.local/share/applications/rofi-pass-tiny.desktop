@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=rofi-pass-tiny
+Comment=Bash script to conveniently handle pass
+Exec=/home/username/bin/rofi-pass-tiny
