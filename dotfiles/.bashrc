@@ -15,7 +15,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
-# xclip shortcuts
+# xclip shortcuts (xc to copy, xp to paste)
 alias xc="xclip -selection clipboard"
 alias xp="xclip -selection clipboard -o"
 
