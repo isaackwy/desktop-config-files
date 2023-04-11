@@ -2,4 +2,4 @@ configuration {
  modi: "window,drun,ssh";
  font: "noto sans 13";
 }
-@theme "matcha-sea.rasi"
+@theme "matcha-dark-sea.rasi"

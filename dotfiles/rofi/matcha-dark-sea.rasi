@@ -1,6 +1,8 @@
 /************************************************
  * ROFI Color theme
- * matcha-sea theme adapted from leofa's Arc-Dark theme
+ * User: isaackwy
+ * Copyright: 2023 isaackwy
+ * Adapted from leofa's Arc-Dark rofi theme
  ***********************************************/
 
 * {
@@ -13,7 +15,7 @@
     blue:                        rgba ( 38, 139, 210, 100 % );
     urgent-foreground:           rgba ( 204, 102, 102, 100 % );
     alternate-urgent-background: rgba ( 75, 81, 96, 90 % );
-    active-foreground:           rgba ( 101, 172, 255, 100 % );
+    active-foreground:           rgba ( 46, 179, 152, 100 % );
     lightbg:                     #534c48;
     selected-active-foreground:  rgba ( 249, 249, 249, 100 % );
     alternate-active-background: rgba ( 75, 81, 96, 89 % );
