@@ -6,9 +6,9 @@
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
 - [movestack](https://dwm.suckless.org/patches/movestack/) - XMonad-like behaviour for moving clients within the stack   
 - [pertag-perseltag](https://dwm.suckless.org/patches/pertag/dwm-pertag-perseltag-6.2.diff) - changes affect all selected tags instead of only the first selected one  
-- [quitprompt](https://dwm.suckless.org/patches/quitprompt/)  
+- [quitprompt](https://dwm.suckless.org/patches/quitprompt/) - `Win-Shift-q` now prompts the user for exit options (reload/logout + reboot/shutdown)  
 - [restoreafterrestart](https://dwm.suckless.org/patches/restoreafterrestart/) - this patch keeps all the windows in their previous tags after restarting dwm  
-- [ru gaps](https://web.archive.org/web/20220627080229/https://dwm.suckless.org/patches/ru_gaps/) (with bottomstack and gaplessgrid layouts)  
+- [ru gaps](https://web.archive.org/web/20220627080229/https://dwm.suckless.org/patches/ru_gaps/) (with [bottomstack](https://web.archive.org/web/20211205174715/https://dwm.suckless.org/patches/ru_gaps/dwm-ru_bottomstack-6.2.diff) and [gaplessgrid](https://web.archive.org/web/20211205170841/https://dwm.suckless.org/patches/ru_gaps/dwm-ru_gaplessgrid-6.2.diff) layouts)  
 - [scratchpad](https://dwm.suckless.org/patches/scratchpad/) - launches a floating terminal window (in this case, Kitty)  
 - [statuscmd](https://dwm.suckless.org/patches/statuscmd/dwm-statuscmd-20210405-67d76bd.diff) (the signal version)  
 - [systray](https://dwm.suckless.org/patches/systray/)  
@@ -23,17 +23,17 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 - Matcha-dark-sea. Refer to vinceliuice's gtk [theme](https://github.com/vinceliuice/Matcha-gtk-theme)
 
 ## Requirements
-- [rofi](https://github.com/davatorium/rofi), of course  
+- [rofi](https://github.com/davatorium/rofi) (of course)  
 - [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
 - imlib2 (due to winicon)  
 
-## Extra shortcuts  
+## Program shortcuts
 + `` Win-` ``: **scratchpad**  
 + `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**  
 + `Win-Shift-KP_Up`: **increase volume by 1**  
 + `Win-Shift-KP_Down`: **decrease volume by 1**  
 
-## Layouts  
+## Layouts (with additional keybindings) 
 
 Layouts are in the following order:  
 tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
