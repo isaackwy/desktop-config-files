@@ -16,8 +16,11 @@ wget https://raw.githubusercontent.com/isaackwy/desktop-preferences/master/libXf
 chmod +x libXft-bgra-Slackware15.sh
 ```
 
-2. Run the script. It downloads the files for building libXft. The script will also check the signature of the upstream libXft tarball:  
+2. Run the script. It downloads the files for building libXft. This script will also check the signature of the upstream libXft tarball:  
 `sh libXft-bgra-Slackware15.sh`
 
-3. Run the script:  
+3. The script will create a new build directory named 'libXft-bgra'. Please change to it:
+`cd libXft-bgra`
+
+4. Run the script:  
 `sudo ./x11.SlackBuild lib libXft`
