@@ -1,2 +1,2 @@
 # desktop-preferences
-Various Desktop Configuration Files
+These configuration files are for Slackware 15.0.
