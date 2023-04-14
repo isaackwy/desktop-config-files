@@ -19,7 +19,7 @@ chmod +x libXft-bgra-Slackware15.sh
 2. Run the script. It downloads the files for building libXft. This script will also check the signature of the upstream libXft tarball:  
 `sh libXft-bgra-Slackware15.sh`
 
-3. The script will create a new build directory named 'libXft-bgra'. Please change to it:
+3. The script will create a new build directory named 'libXft-bgra'. Please change to it:  
 `cd libXft-bgra`
 
 4. Run the script:  
