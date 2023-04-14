@@ -6,7 +6,7 @@ This script downloads all the files necessary for building libXft with the BGRA 
 The patch was written by Maxime Coste:
 https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch
 
-Unlike [OldTechBloke's](https://gitlab.com/OldTechBloke/slackware-libxft-bgra/) SlackBuild, this script sticks closely with the build files from the default Slackware repository.
+Unlike [OldTechBloke's](https://gitlab.com/OldTechBloke/slackware-libxft-bgra/) SlackBuild, my script sticks closely with the build files from the default Slackware repository.
 
 ## Instructions
 Steps:
