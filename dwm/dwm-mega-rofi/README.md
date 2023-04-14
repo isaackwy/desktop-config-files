@@ -6,7 +6,7 @@
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
 - [movestack](https://dwm.suckless.org/patches/movestack/) - XMonad-like behaviour for moving clients within the stack   
 - [pertag-perseltag](https://dwm.suckless.org/patches/pertag/dwm-pertag-perseltag-6.2.diff) - changes affect all selected tags instead of only the first selected one  
-- [quitprompt](https://dwm.suckless.org/patches/quitprompt/) - `Win-Shift-q` now prompts the user for exit options (reload/logout + reboot/shutdown)  
+- [quitprompt](https://dwm.suckless.org/patches/quitprompt/) - `Win-Shift-q` now prompts the user for exit options (reload/logout/reboot/shutdown)  
 - [restoreafterrestart](https://dwm.suckless.org/patches/restoreafterrestart/) - this patch keeps all the windows in their previous tags after restarting dwm  
 - [ru gaps](https://web.archive.org/web/20220627080229/https://dwm.suckless.org/patches/ru_gaps/) (with [bottomstack](https://web.archive.org/web/20211205174715/https://dwm.suckless.org/patches/ru_gaps/dwm-ru_bottomstack-6.2.diff) and [gaplessgrid](https://web.archive.org/web/20211205170841/https://dwm.suckless.org/patches/ru_gaps/dwm-ru_gaplessgrid-6.2.diff) layouts)  
 - [scratchpad](https://dwm.suckless.org/patches/scratchpad/) - launches a floating terminal window (in this case, Kitty)  
