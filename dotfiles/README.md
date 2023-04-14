@@ -8,3 +8,4 @@ These dotfiles contain settings for the following programs:
 - kitty (terminal emulator)
 - nnn (terminal file manager)
 - rofi (application launcher)
+- vimiv-qt (Qt image viewer with vim-like keybindings)
