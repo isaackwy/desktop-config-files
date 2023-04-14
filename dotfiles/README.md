@@ -9,3 +9,4 @@ These dotfiles contain settings for the following programs:
 - [nnn](https://github.com/jarun/nnn) (terminal file manager)
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
 - [vimiv-qt](https://karlch.github.io/vimiv-qt/) (Qt image viewer with vim-like keybindings)
+- [zathura](https://pwmt.org/projects/zathura/) (PDF viewer)
