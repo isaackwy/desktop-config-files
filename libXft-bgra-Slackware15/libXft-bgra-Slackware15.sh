@@ -20,12 +20,12 @@ chmod +x $BUILD_DIR/x11.SlackBuild
 
 # Download files to subdirectories
 wget https://mirrors.slackware.com/slackware/slackware64-15.0/source/x/x11/configure/configure -O $BUILD_DIR/configure/configure
-wget https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1.patch -O $BUILD_DIR/patch/libXft/libXft-bgra-support.patch
+wget https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1.patch -O $BUILD_DIR/patch/libXft/libXft-bgra-support.patch   # BGRA patch
 gzip $BUILD_DIR/patch/libXft/libXft-bgra-support.patch
 wget https://mirrors.slackware.com/slackware/slackware64-15.0/source/x/x11/slack-desc/libXft -O $BUILD_DIR/slack-desc/libXft
 echo 'zcat $CWD/patch/libXft/libXft-bgra-support.patch.gz | patch -p1 --verbose || { touch ${SLACK_X_BUILD_DIR}/${PKGNAME}.failed ; continue ; }' > $BUILD_DIR/patch/libXft.patch
-wget https://xorg.freedesktop.org/releases/individual/lib/libXft-2.3.4.tar.gz -O $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz
-wget https://xorg.freedesktop.org/releases/individual/lib/libXft-2.3.4.tar.gz.sig -O $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz.sig
+wget https://xorg.freedesktop.org/releases/individual/lib/libXft-2.3.4.tar.gz -O $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz             # Upstream libXft source tarball
+wget https://xorg.freedesktop.org/releases/individual/lib/libXft-2.3.4.tar.gz.sig -O $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz.sig     # Source signature 
 
 # Check tarball signature, then remove the libXft signature file
 gpg --keyserver keyserver.ubuntu.com --recv-keys 28C642A7
