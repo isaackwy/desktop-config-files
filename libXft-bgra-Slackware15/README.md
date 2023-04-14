@@ -22,5 +22,5 @@ chmod +x libXft-bgra-Slackware15.sh
 3. The script will create a new build directory named 'libXft-bgra'. Please change to it:  
 `cd libXft-bgra`
 
-4. Run the script:  
+4. Run the script. libXft will install (or rather, reinstall) automatically:  
 `sudo ./x11.SlackBuild lib libXft`
