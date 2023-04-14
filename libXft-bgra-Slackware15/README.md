@@ -9,7 +9,6 @@ https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch
 Unlike [OldTechBloke's](https://gitlab.com/OldTechBloke/slackware-libxft-bgra/) SlackBuild, my script sticks closely with the build files from the default Slackware repository.
 
 ## Instructions
-Steps:
 1. Download my `libXft-bgra-Slackware15.sh` script and add executable permission:  
 ```
 wget https://raw.githubusercontent.com/isaackwy/desktop-preferences/master/libXft-bgra-Slackware15/libXft-bgra-Slackware15.sh
