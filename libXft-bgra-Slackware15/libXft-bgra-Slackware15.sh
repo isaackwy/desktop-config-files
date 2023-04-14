@@ -32,5 +32,6 @@ gpg --keyserver keyserver.ubuntu.com --recv-keys 28C642A7
 gpg --verify $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz.sig
 rm $BUILD_DIR/src/lib/libXft-2.3.4.tar.gz.sig
 
-# Final step: Build libXft (with the bgra patch):
+# Final steps: Build libXft (with the bgra patch):
+#cd libXft-bgra
 #sudo ./x11.SlackBuild lib libXft
