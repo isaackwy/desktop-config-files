@@ -12,7 +12,7 @@ Unlike [OldTechBloke's](https://gitlab.com/OldTechBloke/slackware-libxft-bgra/) 
 Steps:
 1. Download my `libXft-bgra-Slackware15.sh` script and add executable permission:  
 ```
-wget https://raw.githubusercontent.com/isaackwy/desktop-preferences/master/libXft-bgra-Slackware15/libXft-bgra-Slackware15.sh`
+wget https://raw.githubusercontent.com/isaackwy/desktop-preferences/master/libXft-bgra-Slackware15/libXft-bgra-Slackware15.sh
 chmod +x libXft-bgra-Slackware15.sh
 ```
 
