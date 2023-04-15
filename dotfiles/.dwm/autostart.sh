@@ -6,7 +6,7 @@ syncthing serve --no-browser --no-restart --logflags=0 &
 
 # If starting dwm, load dwmblocks. If reloading dwm, restart dwmblocks.
 dwmblocks_load () {
-    [ ! $(pidof dwmblocks) ] && dwmblocks || (pkill dwmblocks && dwmblocks) 
+    [ ! $(pidof dwmblocks) ] && dwmblocks || (killall dwmblocks && dwmblocks) 
 }
 
 # Start other programs.
