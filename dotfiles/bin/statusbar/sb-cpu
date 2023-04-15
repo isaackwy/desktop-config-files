@@ -1,5 +1,7 @@
 #!/bin/sh
 
-# This script adds an extra leading space at the beginning of the output as padding.
+# Temperature is from Ryzen CPU
+CPUTEMP="$(sensors | awk '/Tctl/ {print $2}' | sed 's/+//')"
 
-sensors | awk '/Tctl/ {print " 🌡 " $2}' | sed 's/+//'
+# Since sb-cpu is the first module, an extra space is placed at the beginning (as padding).
+echo "^b#f0932b^ 🌡^c#ffffff^ $CPUTEMP"

@@ -1,3 +1,4 @@
 #!/bin/sh
 
-date "+📅 %b %d %R"
+DATE="$(date '+📅%b %d %R')"
+echo "^b#64727d^^c#ffffff^ ${DATE}"
