@@ -24,5 +24,4 @@ case 1 in
 	* ) echo "^b#297fb8^ 🔇" && exit ;;
 esac
 
-# If not using the integrated-status-text patch, remove the trailing space
 echo "^b#297fb8^^c#ffffff^ $icon $vol%"
