@@ -10,9 +10,6 @@ case $BLOCK_BUTTON in
 	5) pactl set-sink-volume @DEFAULT_SINK@ -2% ;;
 esac
 
-# Alternative way of removing percentage from the vol variable
-# https://serverfault.com/questions/304120/how-to-remove-a-certain-symbol-for-a-bash-script
-
 vol="$(pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $5 }' | tr -d %)"
 muted_status="$(pacmd list-sinks | grep -A 15 '* index' | awk '/muted: /{ print $2 }')"
 
