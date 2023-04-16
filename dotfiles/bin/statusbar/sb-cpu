@@ -4,4 +4,4 @@
 CPUTEMP="$(sensors | awk '/Tctl/ {print $2}' | sed 's/+//')"
 
 # Since sb-cpu is the first module, an extra space is placed at the beginning (as padding).
-echo "^b#f0932b^ 🌡^c#ffffff^ $CPUTEMP"
+echo "^b#f0932b^^c#ffffff^ 🌡 $CPUTEMP"

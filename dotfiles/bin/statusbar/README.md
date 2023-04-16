@@ -1,3 +1,3 @@
 Modules for dwmblocks.
 
-Colors inspired by Waybar (Wayland bar)
+Colours inspired by Waybar (Wayland bar)
