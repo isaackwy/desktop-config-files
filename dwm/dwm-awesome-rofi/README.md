@@ -1,6 +1,6 @@
 ## Patches (in alphabetical order):
 - [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
-- [bartabgroups](https://dwm.suckless.org/patches/bartabgroups/)  
+- [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, my dwm build does not hide windows)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
