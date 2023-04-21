@@ -1,6 +1,5 @@
-**Warnings:** 
+**Warning:** 
 1. If movestack is called without any visible window present, dwm crashes.
-2. `Win-h` is a keybinding both for reducing master area size (setmfact) and for hiding windows
 
 ## Patches (in alphabetical order):
 - [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
@@ -56,6 +55,6 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 
 + `Win-j`/`Win-k`: **Cycle through the visible windows in the current workspace**  
 + `Alt-j`/`Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**  
-+ `Win-h`: **Hide the current active window**  
++ `Win-e`: **Hide the current active window**  
 + `Win-s`: **Unhide (show) a window made visible by** `Alt-j`/`Alt-k`
 + `Win-Shift-s`: **Show all windows (including hidden ones) in the current workspace** 
