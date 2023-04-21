@@ -109,8 +109,8 @@
 + 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[2]} },
 + 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
 +	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
-+	{ MODKEY|ShiftMask,             XK_KP_Left, cyclelayout,    {.i = -1 } },
-+	{ MODKEY|ShiftMask,             XK_KP_Right,cyclelayout,    {.i = +1 } },
++	{ MODKEY|ShiftMask,             XK_KP_Left,  cyclelayout,    {.i = -1 } },
++	{ MODKEY|ShiftMask,             XK_KP_Right, cyclelayout,    {.i = +1 } },
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -1456,53 +1456,56 @@ index 4bcd5ad..71aefa2 100644
  	if (!XGetWindowAttributes(dpy, ev->window, &wa) || wa.override_redirect)
  		return;
  	if (!wintoclient(ev->window))
-@@ -1193,10 +1767,59 @@
+@@ -1193,10 +1767,62 @@
  	}
  }
  
 +void
-+movestack(const Arg *arg) {
++movestack(const Arg *arg)
++{
 +	Client *c = NULL, *p = NULL, *pc = NULL, *i;
 +
-+	if(arg->i > 0) {
++	if (arg->i > 0) {
++		if (!selmon->sel)
++			return;
 +		/* find the client after selmon->sel */
-+		for(c = selmon->sel->next; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
-+		if(!c)
-+			for(c = selmon->clients; c && (!ISVISIBLE(c) || c->isfloating); c = c->next);
-+
++		for (c = selmon->sel->next; c && (!ISVISIBLE(c) || HIDDEN(c) || c->isfloating); c = c->next);
++		if (!c)
++			for (c = selmon->clients; c && (!ISVISIBLE(c) || HIDDEN(c) || c->isfloating); c = c->next);
 +	}
 +	else {
 +		/* find the client before selmon->sel */
-+		for(i = selmon->clients; i != selmon->sel; i = i->next)
-+			if(ISVISIBLE(i) && !i->isfloating)
++		for (i = selmon->clients; i != selmon->sel; i = i->next)
++			if(ISVISIBLE(i) && !HIDDEN(i) && !i->isfloating)
 +				c = i;
-+		if(!c)
-+			for(; i; i = i->next)
-+				if(ISVISIBLE(i) && !i->isfloating)
++		if (!c)
++			for (; i; i = i->next)
++				if (ISVISIBLE(i) && !HIDDEN(i) && !i->isfloating)
 +					c = i;
 +	}
++
 +	/* find the client before selmon->sel and c */
-+	for(i = selmon->clients; i && (!p || !pc); i = i->next) {
-+		if(i->next == selmon->sel)
++	for (i = selmon->clients; i && (!p || !pc); i = i->next) {
++		if (i->next == selmon->sel)
 +			p = i;
-+		if(i->next == c)
++		if (i->next == c)
 +			pc = i;
 +	}
 +
 +	/* swap c and selmon->sel selmon->clients in the selmon->clients list */
-+	if(c && c != selmon->sel) {
++	if (c && c != selmon->sel) {
 +		Client *temp = selmon->sel->next==c?selmon->sel:selmon->sel->next;
 +		selmon->sel->next = c->next==selmon->sel?c:c->next;
 +		c->next = temp;
 +
-+		if(p && p != c)
++		if (p && p != c)
 +			p->next = c;
-+		if(pc && pc != selmon->sel)
++		if (pc && pc != selmon->sel)
 +			pc->next = selmon->sel;
 +
-+		if(selmon->sel == selmon->clients)
++		if (selmon->sel == selmon->clients)
 +			selmon->clients = c;
-+		else if(c == selmon->clients)
++		else if (c == selmon->clients)
 +			selmon->clients = selmon->sel;
 +
 +		arrange(selmon);
@@ -1517,7 +1520,7 @@ index 4bcd5ad..71aefa2 100644
  	return c;
  }
  
-@@ -1216,7 +1839,18 @@
+@@ -1216,7 +1842,18 @@
  	Window trans;
  	XPropertyEvent *ev = &e->xproperty;
  
@@ -1537,7 +1540,7 @@ index 4bcd5ad..71aefa2 100644
  		updatestatus();
  	else if (ev->state == PropertyDelete)
  		return; /* ignore */
-@@ -1241,17 +1875,113 @@
+@@ -1241,17 +1878,113 @@
  			if (c == c->mon->sel)
  				drawbar(c->mon);
  		}
@@ -1651,7 +1654,7 @@ index 4bcd5ad..71aefa2 100644
  Monitor *
  recttomon(int x, int y, int w, int h)
  {
-@@ -1267,6 +1997,19 @@
+@@ -1267,6 +2000,19 @@
  }
  
  void
@@ -1671,7 +1674,7 @@ index 4bcd5ad..71aefa2 100644
  resize(Client *c, int x, int y, int w, int h, int interact)
  {
  	if (applysizehints(c, &x, &y, &w, &h, interact))
-@@ -1274,6 +2017,14 @@
+@@ -1274,6 +2020,14 @@
  }
  
  void
@@ -1686,7 +1689,7 @@ index 4bcd5ad..71aefa2 100644
  resizeclient(Client *c, int x, int y, int w, int h)
  {
  	XWindowChanges wc;
-@@ -1283,6 +2034,13 @@
+@@ -1283,6 +2037,13 @@
  	c->oldw = c->w; c->w = wc.width = w;
  	c->oldh = c->h; c->h = wc.height = h;
  	wc.border_width = c->bw;
@@ -1700,7 +1703,7 @@ index 4bcd5ad..71aefa2 100644
  	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
  	configure(c);
  	XSync(dpy, False);
-@@ -1346,6 +2104,19 @@
+@@ -1346,6 +2107,19 @@
  }
  
  void
@@ -1720,7 +1723,7 @@ index 4bcd5ad..71aefa2 100644
  restack(Monitor *m)
  {
  	Client *c;
-@@ -1382,6 +2153,83 @@
+@@ -1382,6 +2156,83 @@
  }
  
  void
@@ -1804,7 +1807,7 @@ index 4bcd5ad..71aefa2 100644
  scan(void)
  {
  	unsigned int i, num;
-@@ -1434,26 +2282,37 @@
+@@ -1434,26 +2285,37 @@
  }
  
  int
@@ -1853,7 +1856,7 @@ index 4bcd5ad..71aefa2 100644
  	}
  	return exists;
  }
-@@ -1467,7 +2326,7 @@
+@@ -1467,7 +2329,7 @@
  			XA_WINDOW, 32, PropModeReplace,
  			(unsigned char *) &(c->win), 1);
  	}
@@ -1862,7 +1865,7 @@ index 4bcd5ad..71aefa2 100644
  }
  
  void
-@@ -1499,13 +2358,38 @@
+@@ -1499,13 +2361,38 @@
  }
  
  void
@@ -1901,7 +1904,7 @@ index 4bcd5ad..71aefa2 100644
  	if (selmon->sel)
  		arrange(selmon);
  	else
-@@ -1517,13 +2401,24 @@
+@@ -1517,13 +2404,24 @@
  setmfact(const Arg *arg)
  {
  	float f;
@@ -1926,7 +1929,7 @@ index 4bcd5ad..71aefa2 100644
  	arrange(selmon);
  }
  
-@@ -1555,22 +2450,34 @@
+@@ -1555,22 +2453,34 @@
  	wmatom[WMState] = XInternAtom(dpy, "WM_STATE", False);
  	wmatom[WMTakeFocus] = XInternAtom(dpy, "WM_TAKE_FOCUS", False);
  	netatom[NetActiveWindow] = XInternAtom(dpy, "_NET_ACTIVE_WINDOW", False);
@@ -1965,7 +1968,7 @@ index 4bcd5ad..71aefa2 100644
  	/* init bars */
  	updatebars();
  	updatestatus();
-@@ -1611,6 +2518,42 @@
+@@ -1611,6 +2521,42 @@
  }
  
  void
@@ -2008,7 +2011,7 @@ index 4bcd5ad..71aefa2 100644
  showhide(Client *c)
  {
  	if (!c)
-@@ -1637,8 +2580,23 @@
+@@ -1637,8 +2583,23 @@
  }
  
  void
@@ -2032,7 +2035,7 @@ index 4bcd5ad..71aefa2 100644
  	if (fork() == 0) {
  		if (dpy)
  			close(ConnectionNumber(dpy));
-@@ -1669,37 +2627,66 @@
+@@ -1669,37 +2630,66 @@
  void
  tile(Monitor *m)
  {
@@ -2113,7 +2116,7 @@ index 4bcd5ad..71aefa2 100644
  	arrange(selmon);
  }
  
-@@ -1718,6 +2705,28 @@
+@@ -1718,6 +2708,28 @@
  }
  
  void
@@ -2142,7 +2145,7 @@ index 4bcd5ad..71aefa2 100644
  toggletag(const Arg *arg)
  {
  	unsigned int newtags;
-@@ -1736,15 +2745,65 @@
+@@ -1736,15 +2748,65 @@
  toggleview(const Arg *arg)
  {
  	unsigned int newtagset = selmon->tagset[selmon->seltags] ^ (arg->ui & TAGMASK);
@@ -2208,7 +2211,7 @@ index 4bcd5ad..71aefa2 100644
  unfocus(Client *c, int setfocus)
  {
  	if (!c)
-@@ -1765,6 +2824,7 @@
+@@ -1765,6 +2827,7 @@
  
  	detach(c);
  	detachstack(c);
@@ -2216,7 +2219,7 @@ index 4bcd5ad..71aefa2 100644
  	if (!destroyed) {
  		wc.border_width = c->oldbw;
  		XGrabServer(dpy); /* avoid race conditions */
-@@ -1795,11 +2855,18 @@
+@@ -1795,11 +2858,18 @@
  		else
  			unmanage(c, 0);
  	}
@@ -2235,7 +2238,7 @@ index 4bcd5ad..71aefa2 100644
  	Monitor *m;
  	XSetWindowAttributes wa = {
  		.override_redirect = True,
-@@ -1810,10 +2877,15 @@
+@@ -1810,10 +2880,15 @@
  	for (m = mons; m; m = m->next) {
  		if (m->barwin)
  			continue;
@@ -2252,7 +2255,7 @@ index 4bcd5ad..71aefa2 100644
  		XMapRaised(dpy, m->barwin);
  		XSetClassHint(dpy, m->barwin, &ch);
  	}
-@@ -1990,6 +3062,125 @@
+@@ -1990,6 +3065,125 @@
  	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
  		strcpy(stext, "dwm-"VERSION);
  	drawbar(selmon);
@@ -2378,7 +2381,7 @@ index 4bcd5ad..71aefa2 100644
  }
  
  void
-@@ -2002,6 +3193,13 @@
+@@ -2002,6 +3196,13 @@
  }
  
  void
@@ -2392,7 +2395,7 @@ index 4bcd5ad..71aefa2 100644
  updatewindowtype(Client *c)
  {
  	Atom state = getatomprop(c, netatom[NetWMState]);
-@@ -2035,11 +3233,37 @@
+@@ -2035,11 +3236,37 @@
  void
  view(const Arg *arg)
  {
@@ -2431,7 +2434,7 @@ index 4bcd5ad..71aefa2 100644
  	focus(NULL);
  	arrange(selmon);
  }
-@@ -2057,6 +3281,16 @@
+@@ -2057,6 +3284,16 @@
  	return NULL;
  }
  
@@ -2448,7 +2451,7 @@ index 4bcd5ad..71aefa2 100644
  Monitor *
  wintomon(Window w)
  {
-@@ -2110,6 +3344,22 @@
+@@ -2110,6 +3347,22 @@
  	return -1;
  }
  
@@ -2471,7 +2474,7 @@ index 4bcd5ad..71aefa2 100644
  void
  zoom(const Arg *arg)
  {
-@@ -2140,8 +3390,94 @@
+@@ -2140,8 +3393,94 @@
  		die("pledge");
  #endif /* __OpenBSD__ */
  	scan();
