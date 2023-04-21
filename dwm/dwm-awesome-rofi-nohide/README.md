@@ -1,14 +1,12 @@
 This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome-rofi). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
 
-**Warning: If movestack is called without any visible window present, dwm crashes.**
-
 ## Patches (in alphabetical order):
 - [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
-- [movestack](https://dwm.suckless.org/patches/movestack/) - XMonad-like behaviour for moving clients within the stack   
+- [movestack](https://raw.githubusercontent.com/bakkeby/dwm-flexipatch/master/patch/movestack.c) - XMonad-like behaviour for moving clients within the stack   
 - [pertag-perseltag](https://dwm.suckless.org/patches/pertag/dwm-pertag-perseltag-6.2.diff) - changes affect all selected tags instead of only the first selected one  
 - [quitprompt](https://dwm.suckless.org/patches/quitprompt/) - `Win-Shift-q` now prompts the user for exit options (reload/logout/reboot/shutdown)  
 - [restoreafterrestart](https://dwm.suckless.org/patches/restoreafterrestart/) - this patch keeps all the windows in their previous tags after restarting dwm  
@@ -46,8 +44,8 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 + `Win-g`: **gaplessgrid layout**  
 + `Win-Shift-KP_Right`: **cycle to next layout**
 + `Win-Shift-KP_Left`: **cycle to previous layout**
-+ `Win-Shift-j`: **shift client toward master by 1 window**  
-+ `Win-Shift-k`: **shift client away from master by 1 window**  
++ `Win-Shift-j`: **shift client away from master by 1 window**  
++ `Win-Shift-k`: **shift client toward master by 1 window**  
 + `Win-equal`: **increase gaps by 5**  
 + `Win-minus`: **decrease gaps by 5**  
 + `Win-Shift-minus`: **reset gaps to 0**  
