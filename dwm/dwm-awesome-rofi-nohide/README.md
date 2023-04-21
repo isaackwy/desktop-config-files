@@ -1,6 +1,8 @@
+This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome-rofi). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
+
 ## Patches (in alphabetical order):
 - [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
-- [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
+- [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
@@ -40,18 +42,10 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 
 + `Win-u`: **bottomstack layout**  
 + `Win-g`: **gaplessgrid layout**  
-+ `Win-Shift-KP_Right`: **cycle to next layout**  
-+ `Win-Shift-KP_Left`: **cycle to previous layout**  
++ `Win-Shift-KP_Right`: **cycle to next layout**
++ `Win-Shift-KP_Left`: **cycle to previous layout**
 + `Win-Shift-j`: **shift client toward master by 1 window**  
 + `Win-Shift-k`: **shift client away from master by 1 window**  
 + `Win-equal`: **increase gaps by 5**  
 + `Win-minus`: **decrease gaps by 5**  
 + `Win-Shift-minus`: **reset gaps to 0**  
-
-## Awesomebar keybindings
-
-+ `Win-j/Win-k`: Cycle through the visible windows in the current workspace  
-+ `Alt-j/Alt-k`: Cycle through all windows (visible and hidden) in the current workspace  
-+ `Win-h`: Hide the current active window  
-+ `Win-s`: Unhide (show) a window made visible by `Alt-j/Alt-k`  
-+ `Win-Shift-s`: Show all windows (including hidden ones) in the current workspace 
