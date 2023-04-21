@@ -1,3 +1,7 @@
+**Warnings:** 
+1. If movestack is called without any visible window present, dwm crashes.
+2. `Win-h` is a keybinding both for reducing master area size (setmfact) and for hiding windows
+
 ## Patches (in alphabetical order):
 - [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
