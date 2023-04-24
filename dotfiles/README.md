@@ -4,7 +4,7 @@ These dotfiles contain settings for the following programs:
 - [conky](https://github.com/brndnmtthws/conky)
 - [dunst](https://dunst-project.org/) (lightweight notification daemon)
 - [dwm](https://dwm.suckless.org/) (window manager)
-- dwmblocks (status bar)
+- [dwmblocks](https://github.com/UtkarshVerma/dwmblocks-async) (status bar. I am using [UtkarshVerma](https://github.com/UtkarshVerma/)'s asynchronous build.)
 - [kitty](https://sw.kovidgoyal.net/kitty/) (terminal emulator)
 - [nnn](https://github.com/jarun/nnn) (terminal file manager)
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
