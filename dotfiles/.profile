@@ -23,3 +23,6 @@ if [ -n "$BASH_VERSION" ]; then
     . "$HOME/.bashrc"
     fi
 fi
+
+# set NNN_FIFO path
+export NNN_FIFO=/tmp/nnn.fifo
