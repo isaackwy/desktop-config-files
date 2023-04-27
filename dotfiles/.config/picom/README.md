@@ -1,6 +1,10 @@
-Main changes to the default picom.conf file (i.e. opacity settings and picom backend):
+Main changes to the default picom.conf file:
+1. fade-delta (3 milliseconds)
+2. opacity (fully opaque, at 1.0)
+3. backend (glx)
 
 ```
+fade-delta = 3
 inactive-opacity = 1.0;
 frame-opacity = 1.0;
 backend = "glx";
