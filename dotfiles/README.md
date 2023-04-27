@@ -7,6 +7,7 @@ These dotfiles contain settings for the following programs:
 - [dwmblocks](https://github.com/UtkarshVerma/dwmblocks-async) (status bar. I am using [UtkarshVerma](https://github.com/UtkarshVerma/)'s asynchronous build.)
 - [kitty](https://sw.kovidgoyal.net/kitty/) (terminal emulator)
 - [nnn](https://github.com/jarun/nnn) (terminal file manager)
+- [picom](https://github.com/yshui/picom) (compositor for X11)  
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
 - [vimiv-qt](https://karlch.github.io/vimiv-qt/) (Qt image viewer with vim-like keybindings)
 - [zathura](https://pwmt.org/projects/zathura/) (PDF viewer)
