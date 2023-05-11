@@ -1,4 +1,4 @@
 #!/bin/sh
 
-DATE="$(date '+%b %d %R')"
+DATE="$(date '+%a %b %d %R')"
 echo "^b#64727d^^c#ffffff^  ${DATE}"
