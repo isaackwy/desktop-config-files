@@ -2,3 +2,9 @@
 
 DATE="$(date '+%a %b %d %R')"
 echo "^b#64727d^^c#ffffff^  ${DATE}"
+
+case $BLOCK_BUTTON in
+    1) setsid -f coreaction ;;
+    2) pkill coreaction ;;
+    3) notify-send "📅 Time/date module" "\- Left click to open coreaction.\n- Middle click to close coreaction." ;;
+esac
