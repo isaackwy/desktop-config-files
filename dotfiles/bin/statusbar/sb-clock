@@ -4,7 +4,7 @@ DATE="$(date '+%R')"
 echo "^b#64727d^^c#ffffff^ ${DATE}"
 
 case $BLOCK_BUTTON in
-    1) setsid -f coreaction ;;
-    2) pkill coreaction ;;
-    3) notify-send "📅 Time/date module" "\- Left click to open coreaction.\n- Middle click to close coreaction." ;;
+    1) setsid -f gsimplecal ;;
+    2) pkill gsimplecal ;;
+    3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Middle click (or left click on a running gsimplecal instance) to close gsimplecal." ;;
 esac
