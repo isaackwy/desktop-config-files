@@ -1,7 +1,7 @@
 #!/bin/sh
 
-DATE="$(date '+%a %b %d %R')"
-echo "^b#64727d^^c#ffffff^  ${DATE}"
+DATE="$(date '+%R')"
+echo "^b#64727d^^c#ffffff^ ${DATE}"
 
 case $BLOCK_BUTTON in
     1) setsid -f coreaction ;;
