@@ -2,7 +2,7 @@
 
 # Clickable options. Code taken from Luke Smith: 
 # https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-clock
-
+#
 HOUR=$(date '+%I')
 
 case "$HOUR" in
@@ -27,5 +27,5 @@ case $BLOCK_BUTTON in
     3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Middle click (or left click on a running gsimplecal instance) to close gsimplecal." ;;
 esac
 
-echo "^b#64727d^^c#ffffff^ $icon $(date '+%R')"
+echo "^b#64727d^^c#ffffff^ $icon$(date '+%R')"
 
