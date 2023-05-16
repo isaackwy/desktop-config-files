@@ -14,7 +14,7 @@ picom &
 [ ! $(pidof conky) ] && conky &                     # Only load conky when starting dwm.
 pcmanfm-qt --desktop &
 dunst &
-pulseaudio --start; kill -44 $(pidof dwmblocks) &   # Display volume at startup as well. This assumes that the volume module has assigned the update signal to 10.
+pulseaudio --daemonize; kill -44 $(pidof dwmblocks) &   # Display volume at startup as well, assuming that the volume module has assigned the update signal to 10.
 dwmblocks_load &
 nm-applet &
 fcitx &
