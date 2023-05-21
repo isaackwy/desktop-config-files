@@ -66,6 +66,6 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
     { run_command, "^b#f0932b^^c#ffffff^ CPU %s ", "sensors | awk '/Tctl/ {print $2}' | sed 's/+//'" },
-	{ datetime, "^b#64727d^^c#ffffff^ %s ", "%b %d %R" },
+    { datetime, "^b#64727d^^c#ffffff^ %s ", "%b %d %R" },
     { run_command, "^b#297fb8^^c#ffffff^ %s", "pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $5 }'" },
 };
