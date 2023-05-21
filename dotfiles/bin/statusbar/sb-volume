@@ -1,0 +1,10 @@
+#!/bin/sh
+
+vol="$(pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $5 }' | tr -d %)"
+muted_status="$(pacmd list-sinks | grep -A 15 '* index' | awk '/muted: /{ print $2 }')"
+
+# Display mute/unmute status
+[ "$muted_status" != no ] && echo "^b#297fb8^ 0%" && exit
+
+# Display volume
+echo "^b#297fb8^^c#ffffff^ $vol%"

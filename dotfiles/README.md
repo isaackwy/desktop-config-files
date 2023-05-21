@@ -8,6 +8,6 @@ These dotfiles contain settings for the following programs:
 - [nnn](https://github.com/jarun/nnn) (terminal file manager)
 - [picom](https://github.com/yshui/picom) (compositor for X11)  
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
-- [slstatus](https://tools.suckless.org/slstatus/) (status monitor)  
+- [slbar](https://github.com/Rentib/slbar) (status monitor)  
 - [vimiv-qt](https://karlch.github.io/vimiv-qt/) (Qt image viewer with vim-like keybindings)
 - [zathura](https://pwmt.org/projects/zathura/) (PDF viewer)
