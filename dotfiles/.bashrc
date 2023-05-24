@@ -22,7 +22,7 @@ alias xp="xclip -selection clipboard -o"
 # nnn (plugins, trash, etc.)
 # chmodplus is my custom plugin - it adds/removes executable file permission
 export NNN_PLUG='p:preview-tui;x:chmodplus'
-alias nnn="NNN_TRASH=1 nnn -e -x"     # Requires trash-cli
+alias nnn="NNN_TRASH=1 NNN_OPENER=$HOME/.config/nnn/plugins/nuke nnn -e -x"     # Requires trash-cli
 
 # shell depth indicator for nnn
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"

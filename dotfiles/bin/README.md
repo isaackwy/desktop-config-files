@@ -5,3 +5,4 @@ I have adapted Matt Snider's [passmenu-autotype](https://github.com/matt-snider/
 However, my script launches rofi rather than dmenu.
 
 The statusbar subfolder contains scripts for slbar.
+The nsxiv-rifle subfolder contains scripts that display all the images in a directory.  
