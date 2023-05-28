@@ -10,4 +10,5 @@ These dotfiles contain settings for the following programs:
 - [picom](https://github.com/yshui/picom) (compositor for X11)  
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
 - [slbar](https://github.com/Rentib/slbar) (status monitor)  
+- [vim](https://www.vim.org/) (text editor)  
 - [zathura](https://pwmt.org/projects/zathura/) (PDF viewer)
