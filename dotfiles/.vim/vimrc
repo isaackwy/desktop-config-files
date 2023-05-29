@@ -9,12 +9,14 @@ set shiftwidth=4
 " Use space characters instead of tabs.
 set expandtab
 
+" enable syntax
+syntax enable
+
 " Use the breezy theme in vim terminal. Use the PaperColor theme in gvim.
 " https://github.com/fneu/breezy 
 " https://github.com/NLKNguyen/papercolor-theme/
 " https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/papercolor.vim
 if has('gui_running')
-  syntax enable
   set t_Co=256
   colorscheme PaperColor
   set background=light
