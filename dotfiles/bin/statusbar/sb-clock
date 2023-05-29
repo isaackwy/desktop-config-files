@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Display date
-echo "^b#297fb8^^c#ffffff^ $(date '+%b %d %R')"
+echo "^b#2d89c7^^c#ffffff^ $(date '+%b %d %R')"
