@@ -3,5 +3,6 @@
 # Temperature is from Ryzen CPU
 CPUTEMP="$(sensors | awk '/Tctl/ {print $2}' | sed 's/+//')"
 
-# Display CPU temperature
-echo "^b#f0932b^^c#ffffff^ $CPUTEMP"
+# Display CPU temperature.
+# Temperature icon requires FontAwesome.
+echo "^b#f0932b^^c#ffffff^  $CPUTEMP"

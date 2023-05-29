@@ -4,7 +4,14 @@ vol="$(pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $5 
 muted_status="$(pacmd list-sinks | grep -A 15 '* index' | awk '/muted: /{ print $2 }')"
 
 # Display mute/unmute status
-[ "$muted_status" != no ] && echo "^b#297fb8^ 0%" && exit
+[ "$muted_status" != no ] && echo "^b#90b1b1^^c#2a5c45^   " && exit
+
+# Volume icon taken from waybar (requires FontAwesome)
+case 1 in
+	$((vol >= 30)) ) icon="" ;;
+	$((vol >= 1)) ) icon="" ;;
+	* ) echo "^b#90b1b1^^c#2a5c45^  " && exit ;;
+esac
 
 # Display volume
-echo "^b#297fb8^^c#ffffff^ $vol%"
+echo "^b#f1c40f^^c#000000^ $icon $vol%"
