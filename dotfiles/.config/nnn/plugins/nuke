@@ -377,6 +377,19 @@ handle_multimedia() {
             handle_video
             exit 1;;
 
+        ## EPUB files
+        application/epub+zip)
+            if [ "$GUI" -ne 0 ]; then
+                if is_mac; then
+                    nohup open "${FPATH}" >/dev/null 2>&1 &
+                elif type zathura >/dev/null 2>&1; then
+                    nohup tabbed -c -r 2 zathura -e '' "${FPATH}" >/dev/null 2>&1 &
+                else
+                    return
+                fi
+            fi
+            exit 1;;
+
         #     pdftoppm -f 1 -l 1 \
         #              -scale-to-x "${DEFAULT_SIZE%x*}" \
         #              -scale-to-y -1 \
