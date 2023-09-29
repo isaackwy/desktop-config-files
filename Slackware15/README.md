@@ -1,1 +1,1 @@
-These configuration files were for Slackware 15.0.
+Configuration files for Slackware 15.0
