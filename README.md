@@ -1,4 +1,4 @@
 # desktop-config-files
-These configuration files are for Slackware 15.0.
+I am currently using Debian 12.
 
-I no longer use Slackware 15.0. I am now using Debian.
+This repository contains configuration files for Slackware 15.0 (my previous distribution).
