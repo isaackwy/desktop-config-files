@@ -12,6 +12,7 @@
 - [scratchpad](https://dwm.suckless.org/patches/scratchpad/) - launches a floating terminal window (in this case, [Kitty](https://sw.kovidgoyal.net/kitty/))  
 - [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-systray-6.4.diff) (with systray)   
 - [statuscmd](https://dwm.suckless.org/patches/statuscmd/dwm-statuscmd-status2d-20210405-60bb3df.diff) (with signals, for builds patched with [status2d](https://dwm.suckless.org/patches/status2d/))  
+- [swallow](https://dwm.suckless.org/patches/swallow/) (swallows windows opened by terminals)  
 - [truecenteredtitle](https://dwm.suckless.org/patches/truecenteredtitle/)  
 - [use-mod4](https://slackbuilds.org/slackbuilds/15.0/desktop/dwm/sbo-patches/use-mod4.patch)  
 - [replace-dmenu-rofi](https://slackbuilds.org/slackbuilds/15.0/desktop/dwm/sbo-patches/replace-dmenu-rofi.patch)  
