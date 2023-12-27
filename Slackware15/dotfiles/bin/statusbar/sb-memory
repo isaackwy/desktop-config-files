@@ -13,8 +13,8 @@ SWAP_TOTAL="$(free --mebi | sed -n '3{p;q}' | awk '{printf ("%2.2f GiB\n", ($2 /
 MEM_PERCENT="$(free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2f%\n", ($3 * 100 / $2))}')"
 
 case $BLOCK_BUTTON in
-    1) notify-send "Summary of memory usage" "Used/Total: $MEM_USED / $MEM_TOTAL\nAvailable: $MEM_AVAILABLE\nSwap: $SWAP_USED / $SWAP_TOTAL" ;;
-    3) notify-send " Memory module" "\- Shows % of memory used. \n- Left click to display memory statistics." ;;
+	1) notify-send "Summary of memory usage" "Used/Total: $MEM_USED / $MEM_TOTAL\nAvailable: $MEM_AVAILABLE\nSwap: $SWAP_USED / $SWAP_TOTAL" ;;
+	3) notify-send " Memory module" "\- Shows % of memory used. \n- Left click to display memory statistics." ;;
 esac
 
 # Module displays percentage of memory used
