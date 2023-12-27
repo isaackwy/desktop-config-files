@@ -6,7 +6,7 @@ These dotfiles contain settings for the following programs:
 - [dwm](https://dwm.suckless.org/) (window manager)
 - [dwmblocks-async](https://github.com/UtkarshVerma/dwmblocks-async) (status monitor)
 - [kitty](https://sw.kovidgoyal.net/kitty/) (terminal emulator)
-- [nnn](https://github.com/jarun/nnn) (terminal file manager)
+- [lf](https://github.com/gokcehan/lf) (terminal file manager)
 - [nsxiv](https://nsxiv.codeberg.page/) (Neo Simple X Image Viewer)
 - [picom](https://github.com/yshui/picom) (compositor for X11)
 - [rofi](https://github.com/DaveDavenport/rofi/) (application launcher)
