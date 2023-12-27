@@ -4,5 +4,5 @@ In particular, unlike [passmenu](https://git.zx2c4.com/password-store/tree/contr
 I have adapted Matt Snider's [passmenu-autotype](https://github.com/matt-snider/passmenu-autotype).
 However, my script launches rofi rather than dmenu.
 
-The statusbar subfolder contains scripts for slbar.
+The statusbar subfolder contains scripts for dwmblocks.
 The nsxiv-rifle subfolder contains scripts that display all the images in a directory.  
