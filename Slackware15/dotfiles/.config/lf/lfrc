@@ -2,6 +2,7 @@
 set shell bash
 set ifs "\n"
 set autoquit
+set icons
 
 # ctpv (File previewer)
 set previewer ctpv
