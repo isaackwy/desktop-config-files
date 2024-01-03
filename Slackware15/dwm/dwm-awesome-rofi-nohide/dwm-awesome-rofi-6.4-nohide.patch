@@ -1,6 +1,6 @@
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,17 +1,27 @@
+@@ -1,21 +1,33 @@
  /* See LICENSE file for copyright and license details. */
  
 +#define SESSION_FILE "/tmp/dwm-session"
@@ -26,14 +26,19 @@
 +static const char col_gray1[]       = "#141a1b";
  static const char col_gray2[]       = "#444444";
  static const char col_gray3[]       = "#bbbbbb";
--static const char col_gray4[]       = "#eeeeee";
+ static const char col_gray4[]       = "#eeeeee";
 -static const char col_cyan[]        = "#005577";
-+static const char col_gray4[]       = "#ffffff";
 +static const char col_cyan[]        = "#2eb398";
++static const char col_title_bg[]    = "#2b2e30";
  static const char *colors[][3]      = {
  	/*               fg         bg         border   */
  	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-@@ -26,9 +36,11 @@
+ 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
++	[SchemeTitle]  = { col_gray4, col_title_bg,  col_cyan  },
+ };
+ 
+ /* tagging */
+@@ -26,9 +38,11 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -48,7 +53,7 @@
  };
  
  /* layout(s) */
-@@ -40,12 +52,15 @@
+@@ -40,12 +54,15 @@
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -66,7 +71,7 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -55,14 +70,22 @@
+@@ -55,14 +72,22 @@
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
@@ -92,7 +97,7 @@
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -70,12 +93,18 @@
+@@ -70,12 +95,18 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -108,12 +113,12 @@
 + 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[2]} },
 + 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
 +	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
-+	{ MODKEY|ShiftMask,             XK_KP_Left, cyclelayout,    {.i = -1 } },
-+	{ MODKEY|ShiftMask,             XK_KP_Right,cyclelayout,    {.i = +1 } },
++	{ MODKEY|ShiftMask,             XK_KP_Left,  cyclelayout,    {.i = -1 } },
++	{ MODKEY|ShiftMask,             XK_KP_Right, cyclelayout,    {.i = +1 } },
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-@@ -84,6 +113,9 @@
+@@ -84,6 +115,9 @@
  	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -123,7 +128,7 @@
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,7 +125,7 @@
+@@ -93,7 +127,7 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -132,7 +137,7 @@
  };
  
  /* button definitions */
-@@ -102,8 +134,13 @@
+@@ -102,8 +136,13 @@
  	/* click                event mask      button          function        argument */
  	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -147,7 +152,7 @@
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-@@ -112,4 +149,3 @@
+@@ -112,4 +151,3 @@
  	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
@@ -431,8 +436,9 @@ index 4bcd5ad..71aefa2 100644
 +
  /* enums */
  enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
- enum { SchemeNorm, SchemeSel }; /* color schemes */
+-enum { SchemeNorm, SchemeSel }; /* color schemes */
 -enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
++enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
 +enum { NetSupported, NetWMName, NetWMIcon, NetWMState, NetWMCheck,
 +       NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
         NetWMFullscreen, NetActiveWindow, NetWMWindowType,
@@ -1145,7 +1151,7 @@ index 4bcd5ad..71aefa2 100644
 +				if (!ISVISIBLE(c))
 +					continue;
 +				if (m->sel == c)
-+					scm = SchemeSel;
++					scm = SchemeTitle;
 +				else
 +					scm = SchemeNorm;
 +				drw_setscheme(drw, scheme[scm]);
