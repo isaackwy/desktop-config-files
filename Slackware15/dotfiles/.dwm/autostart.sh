@@ -6,16 +6,17 @@ syncthing serve --no-browser --no-restart --logflags=0 &
 
 # If starting dwm, load dwmblocks. If reloading dwm, restart dwmblocks.
 dwmblocks_load () {
-    [ ! $(pidof dwmblocks) ] && dwmblocks || (killall dwmblocks && dwmblocks)
+    [ ! $(pidof dwmblocks) ] && setsid -f dwmblocks || (killall dwmblocks && setsid -f dwmblocks)
 }
 
 # Start other programs.
 picom &
-[ ! $(pidof conky) ] && conky &                     # Only load conky when starting dwm.
+[ ! $(pidof conky) ] && conky &                         # Only load conky when starting dwm.
 pcmanfm-qt --desktop &
 dunst &
 pulseaudio --daemonize; kill -44 $(pidof dwmblocks)     # Display volume at startup as well, assuming that the volume module has assigned the update signal to 10.
 dwmblocks_load &
-nm-applet &
-fcitx &
+[ ! $(pidof nm-applet) ] && nm-applet &                 # Only load nm-applet when starting dwm.
+[ ! $(pidof fcitx) ] && fcitx &                         # Only load fcitx when starting dwm.
 hp-systray -x &
+pkill -15 opensnitch-ui; opensnitch-ui &
