@@ -1,8 +1,8 @@
 This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome-rofi). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
 
 ## Patches (in alphabetical order):
-- [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
+- [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
@@ -30,24 +30,25 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 - [rofi](https://github.com/davatorium/rofi) (of course)  
 - [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
 - imlib2 (due to winicon)  
+- wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
 
 ## Program shortcuts
-+ `` Win-` ``: **scratchpad**  
-+ `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**  
-+ `Win-Shift-KP_Up`: **increase volume by 1**  
-+ `Win-Shift-KP_Down`: **decrease volume by 1**  
++ `` Win-` ``: **scratchpad**
++ `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**
++ `Win-Shift-KP_Up`: **increase volume by 1**
++ `Win-Shift-KP_Down`: **decrease volume by 1**
 
 ## Layouts (with additional keybindings) 
 
 Layouts are in the following order:  
 tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 
-+ `Win-u`: **bottomstack layout**  
-+ `Win-g`: **gaplessgrid layout**  
++ `Win-u`: **bottomstack layout**
++ `Win-g`: **gaplessgrid layout**
 + `Win-Shift-KP_Right`: **cycle to next layout**
 + `Win-Shift-KP_Left`: **cycle to previous layout**
-+ `Win-Shift-j`: **shift client away from master by 1 window**  
-+ `Win-Shift-k`: **shift client toward master by 1 window**  
-+ `Win-equal`: **increase gaps by 5**  
-+ `Win-minus`: **decrease gaps by 5**  
-+ `Win-Shift-minus`: **reset gaps to 0**  
++ `Win-Shift-j`: **shift client away from master by 1 window**
++ `Win-Shift-k`: **shift client toward master by 1 window**
++ `Win-equal`: **increase gaps by 5**
++ `Win-minus`: **decrease gaps by 5**
++ `Win-Shift-minus`: **reset gaps to 0**
