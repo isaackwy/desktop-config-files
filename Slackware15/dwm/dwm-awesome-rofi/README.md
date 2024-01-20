@@ -1,6 +1,6 @@
 ## Patches (in alphabetical order):
-- [autostart](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff) - launch dwm autostart [script](https://github.com/isaackwy/desktop-preferences/tree/master/dotfiles/.dwm)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
+- [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
@@ -24,10 +24,11 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 ## Color theme
 - Matcha-dark-sea. Refer to vinceliuice's gtk [theme](https://github.com/vinceliuice/Matcha-gtk-theme)
 
-## Requirements
+## Dependencies
 - [rofi](https://github.com/davatorium/rofi) (of course)  
 - [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
 - imlib2 (due to winicon)  
+- wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
 
 ## Program shortcuts
 + `` Win-` ``: **scratchpad**  
@@ -56,4 +57,4 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 + `Alt-j`/`Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**  
 + `Win-e`: **Hide the current active window**  
 + `Win-s`: **Unhide (show) a window made visible by** `Alt-j`/`Alt-k`
-+ `Win-Shift-s`: **Show all windows (including hidden ones) in the current workspace** 
++ `Win-Shift-s`: **Show all windows (including hidden ones) in the current workspace**
