@@ -40,21 +40,21 @@
 +};
 +
 +static const char *const autostart[] = {
-+    "syncthing", "serve", "--no-browser", "--no-restart", "--logflags=0", NULL,
-+    "picom", NULL,
-+    "sh", "-c", "[ ! $(pidof conky) ] && conky", NULL,
-+    "pcmanfm-qt", "--desktop", NULL,
-+    "dunst", NULL,
-+    "pipewire", NULL,
-+    "wireplumber", NULL,
-+    "pipewire-pulse", NULL,
-+    "dwmblocks", NULL,
-+    "sh", "-c", "sleep 9; kill -44 $(pidof dwmblocks)", NULL,
-+    "nm-applet", NULL,
-+    "fcitx", NULL,
-+    "hp-systray", "-x", NULL,
-+    "sh", "-c", "pkill -15 opensnitch-ui; opensnitch-ui", NULL,
-+    NULL
++	"syncthing", "serve", "--no-browser", "--no-restart", "--logflags=0", NULL,
++	"picom", NULL,
++	"sh", "-c", "[ ! $(pidof conky) ] && conky", NULL,
++	"pcmanfm-qt", "--desktop", NULL,
++	"dunst", NULL,
++	"pipewire", NULL,
++	"wireplumber", NULL,
++	"pipewire-pulse", NULL,
++	"dwmblocks", NULL,
++	"sh", "-c", "sleep 9; kill -44 $(pidof dwmblocks)", NULL,
++	"nm-applet", NULL,
++	"fcitx", NULL,
++	"hp-systray", "-x", NULL,
++	"sh", "-c", "pkill -15 opensnitch-ui; opensnitch-ui", NULL,
++	NULL /* terminate */
  };
  
  /* tagging */
