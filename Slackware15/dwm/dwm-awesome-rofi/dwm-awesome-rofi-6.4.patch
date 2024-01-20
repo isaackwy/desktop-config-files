@@ -1518,6 +1518,7 @@ index 4bcd5ad..71aefa2 100644
  
  	c = ecalloc(1, sizeof(Client));
  	c->win = w;
++	c->pid = winpid(w);
 +
 +	if (getatomprop(c, netatom[NetWMWindowType]) == netatom[NetWMWindowTypeDesktop]) {
 +		XMapWindow(dpy, c->win);
@@ -1526,7 +1527,6 @@ index 4bcd5ad..71aefa2 100644
 +		return;
 +	}
 +
-+	c->pid = winpid(w);
  	/* geometry */
  	c->x = c->oldx = wa->x;
  	c->y = c->oldy = wa->y;
@@ -1791,7 +1791,7 @@ index 4bcd5ad..71aefa2 100644
 +		} else if (strcmp(buf, "(2) reload\n") == 0) {
 +			pclose(pp);
 +			restart = 1;
-+            saveSession();
++           saveSession();
 +			quit(NULL);
 +		} else if (strcmp(buf, "(1) cancel\n") == 0) {
 +			pclose(pp);

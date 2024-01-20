@@ -31,30 +31,30 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 - wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
 
 ## Program shortcuts
-+ `` Win-` ``: **scratchpad**  
-+ `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**  
-+ `Win-Shift-KP_Up`: **increase volume by 1**  
-+ `Win-Shift-KP_Down`: **decrease volume by 1**  
++ `` Win-` ``: **scratchpad**
++ `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**
++ `Win-Shift-KP_Up`: **increase volume by 1**
++ `Win-Shift-KP_Down`: **decrease volume by 1**
 
 ## Layouts (with additional keybindings) 
 
 Layouts are in the following order:  
 tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 
-+ `Win-u`: **bottomstack layout**  
-+ `Win-g`: **gaplessgrid layout**  
-+ `Win-Shift-KP_Right`: **cycle to next layout**  
-+ `Win-Shift-KP_Left`: **cycle to previous layout**  
-+ `Win-Shift-j`: **shift client away from master by 1 window (ignores hidden windows)**  
-+ `Win-Shift-k`: **shift client toward master by 1 window (ignores hidden windows)**  
-+ `Win-equal`: **increase gaps by 5**  
-+ `Win-minus`: **decrease gaps by 5**  
-+ `Win-Shift-minus`: **reset gaps to 0**  
++ `Win-u`: **bottomstack layout**
++ `Win-g`: **gaplessgrid layout**
++ `Win-Shift-KP_Right`: **cycle to next layout**
++ `Win-Shift-KP_Left`: **cycle to previous layout**
++ `Win-Shift-j`: **shift client away from master by 1 window (ignores hidden windows)**
++ `Win-Shift-k`: **shift client toward master by 1 window (ignores hidden windows)**
++ `Win-equal`: **increase gaps by 5**
++ `Win-minus`: **decrease gaps by 5**
++ `Win-Shift-minus`: **reset gaps to 0**
 
 ## Awesomebar keybindings
 
-+ `Win-j`/`Win-k`: **Cycle through the visible windows in the current workspace**  
-+ `Alt-j`/`Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**  
-+ `Win-e`: **Hide the current active window**  
++ `Win-j`/`Win-k`: **Cycle through the visible windows in the current workspace**
++ `Alt-j`/`Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**
++ `Win-e`: **Hide the current active window**
 + `Win-s`: **Unhide (show) a window made visible by** `Alt-j`/`Alt-k`
 + `Win-Shift-s`: **Show all windows (including hidden ones) in the current workspace**
