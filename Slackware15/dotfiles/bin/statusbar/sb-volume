@@ -4,17 +4,27 @@
 # https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-volume
 case $BLOCK_BUTTON in
 	1) setsid -f pavucontrol ;;
-	2) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
-	3) notify-send "📢 Volume module" "\- Shows volume , 󰝟 if muted. \n- Left click to open pavucontrol.\n- Middle click to mute.\n- Scroll to change." ;;
-	4) pactl set-sink-volume @DEFAULT_SINK@ +2% ;;
-	5) pactl set-sink-volume @DEFAULT_SINK@ -2% ;;
+	2) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+	3) notify-send "📢 Volume module" "\- Shows volume , 󰝟  if muted. \n- Left click to open pavucontrol.\n- Middle click to mute.\n- Scroll to change." ;;
+	4) wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ ;;
+	5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- ;;
 esac
 
-vol="$(pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $5 }' | tr -d %)"
-muted_status="$(pacmd list-sinks | grep -A 15 '* index' | awk '/muted: /{ print $2 }')"
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 
-# Display mute/unmute status
-[ "$muted_status" != no ] && echo "^b#90b1b1^^c#2a5c45^  " && exit
+# If muted
+[ "$vol" != "${vol%\[MUTED\]}" ] && echo "^b#90b1b1^^c#2a5ca5^  "  && exit
+
+vol="${vol#Volume: }"
+
+split() {
+	# For omitting the . without calling and external program.
+	IFS=$2
+	set -- $1
+	printf '%s' "$@"
+}
+
+vol="$(printf "%.0f" "$(split "$vol" ".")")"
 
 # Volume icon taken from waybar (requires FontAwesome)
 case 1 in
