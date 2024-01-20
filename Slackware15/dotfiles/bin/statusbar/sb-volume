@@ -2,6 +2,7 @@
 
 # Clickable options. Code taken from Luke Smith:
 # https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-volume
+# This script requires wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
 case $BLOCK_BUTTON in
 	1) setsid -f pavucontrol ;;
 	2) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
