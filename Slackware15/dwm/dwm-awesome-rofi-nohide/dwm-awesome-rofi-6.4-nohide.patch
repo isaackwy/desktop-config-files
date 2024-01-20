@@ -1618,7 +1618,7 @@ index 4bcd5ad..71aefa2 100644
 +		} else if (strcmp(buf, "(2) reload\n") == 0) {
 +			pclose(pp);
 +			restart = 1;
-+            saveSession();
++           saveSession();
 +			quit(NULL);
 +		} else if (strcmp(buf, "(1) cancel\n") == 0) {
 +			pclose(pp);
