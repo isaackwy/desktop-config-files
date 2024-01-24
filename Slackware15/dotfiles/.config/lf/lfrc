@@ -45,7 +45,7 @@ cmd open_with ${{
 # blank (default) for extracting to the current folder. Enter in a folder name for extracting to a subdirectory.
 cmd extract ${{
 	case $(file --mime-type "$(readlink -f $f)" -b) in
-        application/gzip|application/x-xz) 
+        application/gzip|application/x-tar|application/x-xz)
             case "$1" in
                "") tar -xvf $fx ;;
                *) mkdir $1 && tar -xvf $fx -C $1;;
@@ -67,13 +67,13 @@ cmd compress ${{
     case $(file --mime-type "$(readlink -f $filename)" -b) in
         inode/directory)
             case "$1" in
-                "") tar czvf $filename.tar.gz $filename ;;         # folders do not need their extensions removed 
+                "") tar czvf $filename.tar.gz $filename ;;         # folders do not need their extensions removed
                 *) tar czvf $1.tar.gz $filename ;;
             esac ;;
         *)
             case "$1" in
                 "") tar czvf $no_extension.tar.gz $filename ;;     # exclude the extension of $filename in creating the tarball $filename.tar.gz
-                *) tar czvf $1.tar.gz $filename ;; 
+                *) tar czvf $1.tar.gz $filename ;;
             esac ;;
     esac
 }}
