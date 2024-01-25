@@ -47,14 +47,24 @@ cmd extract ${{
 	case $(file --mime-type "$(readlink -f $f)" -b) in
         application/gzip|application/x-tar|application/x-xz)
             case "$1" in
-               "") tar -xvf $fx ;;
-               *) mkdir $1 && tar -xvf $fx -C $1;;
+                "") tar -xvf $fx ;;
+                *) mkdir $1 && tar -xvf $fx -C $1;;
             esac ;;
         application/zip)
             case "$1" in
-               "") unzip $fx ;;
-               *) mkdir $1 && unzip $fx -d $1;;
+                "") unzip $fx ;;
+                *) mkdir $1 && unzip $fx -d $1;;
             esac ;;
+        application/x-rpm)
+            case "$1" in
+                "") bsdtar -xvf $fx ;;
+                *) mkdir $1 && bsdtar -xvf $fx -C $1;;
+            esac;;
+        application/vnd.debian.binary-package)
+            case "$1" in
+                "") ar xv $fx ;;
+                *) mkdir $1 && ar xv $fx --output $1;;
+            esac;;
     esac
 }}
 
@@ -67,7 +77,7 @@ cmd compress ${{
     case $(file --mime-type "$(readlink -f $filename)" -b) in
         inode/directory)
             case "$1" in
-                "") tar czvf $filename.tar.gz $filename ;;         # folders do not need their extensions removed
+                "") tar czvf $filename.tar.gz $filename ;;         # folders do not need their extensions removed 
                 *) tar czvf $1.tar.gz $filename ;;
             esac ;;
         *)
