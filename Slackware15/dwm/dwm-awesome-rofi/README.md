@@ -19,7 +19,8 @@
 - [replace-dmenu-rofi](https://slackbuilds.org/slackbuilds/15.0/desktop/dwm/sbo-patches/replace-dmenu-rofi.patch)  
 - [winicon](https://dwm.suckless.org/patches/winicon/)  
 
-However, this patch does not contain the bstackhoriz layout from the [bottomstack](https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff) patch.
+However, this patch does not contain the bstackhoriz layout from the [bottomstack](https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff) patch.  
+In addition, this patch underlines the current active window (feature inspired by the [underlinetags](https://dwm.suckless.org/patches/underlinetags/) patch).
 
 ## Color theme
 - Matcha-dark-sea. Refer to vinceliuice's gtk [theme](https://github.com/vinceliuice/Matcha-gtk-theme)
