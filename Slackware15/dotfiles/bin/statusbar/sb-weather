@@ -1,0 +1,5 @@
+#!/bin/sh
+
+WEATHER=$(curl -s wttr.in/Vancouver?format="%c%t+%C\n" | sed 's/  +/ /g')
+
+echo "^b#96cdfb^^c#161320^ $WEATHER"

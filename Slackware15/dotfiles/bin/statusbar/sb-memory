@@ -10,7 +10,7 @@ MEM_TOTAL="$(free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2f GiB\n", ($2 / 
 MEM_AVAILABLE="$(free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2f GiB\n", ($7 / 1024))}')"
 SWAP_USED="$(free --mebi | sed -n '3{p;q}' | awk '{printf ("%2.2f GiB\n", ($3 / 1024))}')"
 SWAP_TOTAL="$(free --mebi | sed -n '3{p;q}' | awk '{printf ("%2.2f GiB\n", ($2 / 1024))}')"
-MEM_PERCENT="$(free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.2f%\n", ($3 * 100 / $2))}')"
+MEM_PERCENT="$(free --mebi | sed -n '2{p;q}' | awk '{printf ("%2.1f%\n", ($3 * 100 / $2))}')"
 
 case $BLOCK_BUTTON in
 	1) notify-send "Summary of memory usage" "Used/Total: $MEM_USED / $MEM_TOTAL\nAvailable: $MEM_AVAILABLE\nSwap: $SWAP_USED / $SWAP_TOTAL" ;;
@@ -19,4 +19,4 @@ esac
 
 # Module displays percentage of memory used
 # Memory icon requires FontAwesome
-echo "^b#9b59b6^^c#ffffff^  $MEM_PERCENT"
+echo "^b#eba0ac^^c#161320^  $MEM_PERCENT"
