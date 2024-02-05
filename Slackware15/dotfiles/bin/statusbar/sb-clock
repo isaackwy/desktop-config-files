@@ -32,4 +32,4 @@ case $BLOCK_BUTTON in
 esac
 
 # Display date (month+day) and time
-echo "^b#abe9b3^^c#161320^ $icon $(date "+%R")"
+echo "^b#abe9b3^^c#161320^ 󰃶 $(date "+%b %d $icon %R")"

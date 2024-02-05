@@ -20,7 +20,6 @@
 // Replace 'user' with your username
 #define BLOCKS(X)         \
     X("/home/user/bin/statusbar/sb-memory", 2, 1)  \
-    X("/home/user/bin/statusbar/sb-weather", 600, 3) \
     X("/home/user/bin/statusbar/sb-clock", 60, 2) \
     X("/home/user/bin/statusbar/sb-volume", 0, 10) \
 
