@@ -3,7 +3,7 @@
 # This script uses wego to display the weather:
 # https://github.com/schachmat/wego
 
-CONDITION=$(wego -f markdown | sed -n '3p' | xargs | sed -E "s/[[:alnum:]_'-]+/\u&/g")
+CONDITION=$(wego -f markdown | sed -n '3p' | xargs | sed "s/clouds//g" | sed -E "s/[[:alnum:]_'-]+/\u&/g")
 WEATHER=$(wego -f markdown | sed -n '4p' | sed -e 's/ ([^()]*) //g' | xargs)
 
 echo "^b#96cdfb^^c#161320^ $WEATHER $CONDITION"
