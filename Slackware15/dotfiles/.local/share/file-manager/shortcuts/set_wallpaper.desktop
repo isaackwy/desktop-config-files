@@ -1,3 +1,5 @@
+# Desktop entry taken from stefonarch:
+# https://github.com/stefonarch/custom-actions/blob/master/actions/set_wallpaper.desktop
 [Desktop Entry]
 Type=Action
 Name=Set as wallpaper
