@@ -3,14 +3,18 @@
 # This script uses wego to display the weather:
 # https://github.com/schachmat/wego
 
-CONDITION=$(wego -f markdown | sed -n '3p' \
-  | xargs \
+# This script also requires jq
+
+CONDITION=$(wego -f json \
+  | jq '.Current.Desc' \
+  | tr -d '""' \
   | sed "s/overcast clouds/overcast/g" \
   | sed "s/scattered clouds/scattered/g" \
   | sed "s/broken clouds/broken/g" \
   | sed -E "s/[[:alnum:]_'-]+/\u&/g")
 
-WEATHER=$(wego -f markdown | sed -n '4p' \
+WEATHER=$(wego -f markdown \
+  | sed -n '4p' \
   | xargs \
   | sed -e 's/ ([^()]*) //g')
 
