@@ -3,7 +3,7 @@
 # This script uses wego to display the weather:
 # https://github.com/schachmat/wego
 
-# This script also requires jq
+# This script also requires jq and mousam
 
 CONDITION=$(wego -f json \
   | jq '.Current.Desc' \
@@ -17,5 +17,10 @@ WEATHER=$(wego -f markdown \
   | sed -n '4p' \
   | xargs \
   | sed -e 's/ ([^()]*) //g')
+
+case $BLOCK_BUTTON in
+    1) mousam ;;
+    3) notify-send "󰖐 Weather module" "\- Left click to display weather." ;;
+esac
 
 echo "^b#96cdfb^^c#161320^ $WEATHER $CONDITION"
