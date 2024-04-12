@@ -45,7 +45,7 @@ cmd open_with ${{
 # blank (default) for extracting to the current folder. Enter in a folder name for extracting to a subdirectory.
 cmd extract ${{
 	case $(file --mime-type "$(readlink -f $f)" -b) in
-        application/gzip|application/x-tar|application/x-xz)
+        application/gzip|application/x-tar|application/x-xz|application/x-bzip2)
             case "$1" in
                 "") tar -xvf $fx ;;
                 *) mkdir $1 && tar -xvf $fx -C $1;;
