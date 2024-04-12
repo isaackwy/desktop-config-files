@@ -5,7 +5,7 @@
 
 # This script also requires kitty (terminal) and jq
 
-# Terminal command (for spawning wego window) taken from the following source: 
+# Terminal command (for spawning wego window) taken from the following source:
 # https://askubuntu.com/questions/20330/how-to-run-a-script-without-closing-the-terminal
 
 CONDITION=$(wego -f json \
