@@ -28,7 +28,7 @@ esac
 
 case $BLOCK_BUTTON in
     1) [ ! $(pidof gsimplecal) ] && setsid -f gsimplecal || pkill -1 gsimplecal ;;
-    3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Left click again (while gsimplecal is running) to close gsimplecal." ;;
+    3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Left click again (while gsimplecal is running) to close the calendar." ;;
 esac
 
 # Display date (month+day) and time
