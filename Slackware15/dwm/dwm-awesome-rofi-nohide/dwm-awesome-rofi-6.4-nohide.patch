@@ -42,7 +42,7 @@
 +	"picom", NULL,
 +	"sh", "-c", "[ ! $(pidof conky) ] && conky", NULL,
 +	"pcmanfm-qt", "--desktop", NULL,
-+	"dunst", NULL,
++	"lxqt-notificationd", NULL,
 +	"pipewire", NULL,
 +	"wireplumber", NULL,
 +	"pipewire-pulse", NULL,
