@@ -1,4 +1,4 @@
-The dunstrc config file is for dunst 1.9.1.
+The dunstrc config file is for dunst 1.11.0.
 
 Changes to the default file:
 - Font is Noto Sans 11
