@@ -2,6 +2,7 @@ Various config files for my desktop.
 
 These dotfiles contain settings for the following programs:
 - [conky](https://github.com/brndnmtthws/conky)
+- [dunst](https://dunst-project.org/) (lightweight notification daemon)
 - [dwm](https://dwm.suckless.org/) (window manager)
 - [dwmblocks-async](https://github.com/UtkarshVerma/dwmblocks-async) (status monitor)
 - [kitty](https://sw.kovidgoyal.net/kitty/) (terminal emulator)
