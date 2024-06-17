@@ -6,30 +6,10 @@
 # Do not send in SIGKILL (ex. pkill -9). I prefer sending a SIGHUP (ex. pkill -1)
 # https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process
 
-# Logic expressions as shorthand for if-else control:
-# https://fabianlee.org/2020/10/14/bash-using-logic-expressions-as-a-shorthand-for-if-then-else-control/
-
-hour=$(date '+%I')
-case "$hour" in
-	"00") icon="󱑖" ;;
-	"01") icon="󱑋" ;;
-	"02") icon="󱑌" ;;
-	"03") icon="󱑍" ;;
-	"04") icon="󱑎" ;;
-	"05") icon="󱑏" ;;
-	"06") icon="󱑐" ;;
-	"07") icon="󱑑" ;;
-	"08") icon="󱑒" ;;
-	"09") icon="󱑓" ;;
-	"10") icon="󱑔" ;;
-	"11") icon="󱑕" ;;
-	"12") icon="󱑖" ;;
-esac
-
 case $BLOCK_BUTTON in
     1) [ ! $(pidof gsimplecal) ] && setsid -f gsimplecal || pkill -1 gsimplecal ;;
     3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Left click again (while gsimplecal is running) to close the calendar." ;;
 esac
 
 # Display date (month+day) and time
-echo "^b#abe9b3^^c#161320^ $icon $(date "+%R")"
+echo "^c#abe9b3^ 󰃰 $(date "+%b %d %R")"

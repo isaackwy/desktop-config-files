@@ -19,4 +19,4 @@ esac
 
 # Module displays percentage of memory used
 # Memory icon requires FontAwesome
-echo "^b#eba0ac^^c#161320^  $MEM_PERCENT"
+echo "^c#ddb6f2^  $MEM_PERCENT"
