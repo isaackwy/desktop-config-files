@@ -1,7 +1,7 @@
 ## Patches (in alphabetical order):
-- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) (centre all floating windows)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
 - [bidi](https://dwm.suckless.org/patches/bidi) - Right-to-left language support (only for title)  
+- [center](https://dwm.suckless.org/patches/center/)  
 - [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
