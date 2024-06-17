@@ -1,5 +1,5 @@
 ## Patches (in alphabetical order):
-- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) (center all floating windows)  
+- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) (centre all floating windows)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
 - [bidi](https://dwm.suckless.org/patches/bidi) - Right-to-left language support (only for title)  
 - [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  

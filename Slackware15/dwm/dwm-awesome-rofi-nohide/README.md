@@ -1,7 +1,7 @@
 This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome-rofi). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
 
 ## Patches (in alphabetical order):
-- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) (center all floating windows)  
+- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) (centre all floating windows)  
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
 - [bidi](https://dwm.suckless.org/patches/bidi) - Right-to-left language support (only for title)  
 - [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
