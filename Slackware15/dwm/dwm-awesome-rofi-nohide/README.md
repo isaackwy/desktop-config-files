@@ -3,7 +3,7 @@ This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaack
 ## Patches (in alphabetical order):
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
 - [bidi](https://dwm.suckless.org/patches/bidi) - Right-to-left language support (only for title)  
-- [center](https://dwm.suckless.org/patches/center/)  
+- [center](https://dwm.suckless.org/patches/center/) - centre all floating windows by default (except for gsimplecal)  
 - [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  

@@ -80,7 +80,7 @@
 +	{ "Firefox",    NULL,     NULL,           0,         0,          0,          0,          -1,        -1 },
 +	{ "Gvim",       NULL,     NULL,           0,         0,          0,          0,           1,        -1 },
 +	{ "kitty",      NULL,     NULL,           0,         0,          0,          1,           0,        -1 },
-+	{ "gsimplecal", NULL,     NULL,           0,         0,          1,          0,           1,        -1 },
++	{ "Gsimplecal", NULL,     NULL,           0,         0,          1,          0,           1,        -1 },
 +	{ NULL,         NULL,     "Event Tester", 0,         0,          0,          0,           1,        -1 }, /* xev */
  };
  
@@ -741,7 +741,7 @@ index 4bcd5ad..71aefa2 100644
  	XClassHint ch = { NULL, NULL };
  
  	/* rule matching */
-+	c->iscentered = 0;
++	c->iscentered = 1;
  	c->isfloating = 0;
  	c->tags = 0;
  	XGetClassHint(dpy, c->win, &ch);
