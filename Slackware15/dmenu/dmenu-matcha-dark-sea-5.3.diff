@@ -1,5 +1,5 @@
---- a/config.def.h
-+++ b/config.def.h
+--- a/config.def.h	2024-03-19 04:25:09.000000000 -0700
++++ b/config.def.h	2024-06-20 20:50:04.014809036 -0700
 @@ -4,13 +4,13 @@
  static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
  /* -fn option overrides fonts[0]; default X11 font or font set */
