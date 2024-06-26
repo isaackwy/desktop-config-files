@@ -44,7 +44,7 @@
 +	"picom", NULL,
 +	"mpd", NULL,
 +	"sh", "-c", "[ ! $(pidof conky) ] && conky", NULL,
-+	"pcmanfm-qt", "--desktop", NULL,
++	"sh", "-c", "xwallpaper --center ~/Wallpaper/Symphony_1680x1050.jpg", NULL,
 +	"dunst", NULL,
 +	"pipewire", NULL,
 +	"wireplumber", NULL,
@@ -78,8 +78,8 @@
 +	{ "Gimp",       NULL,     NULL,           0,         0,          1,          0,           0,        -1 },
 +	{ "Firefox",    NULL,     NULL,           0,         0,          0,          0,          -1,        -1 },
 +	{ "Gvim",       NULL,     NULL,           0,         0,          0,          0,           1,        -1 },
-+	{ "kitty",      NULL,     NULL,           0,         0,          0,          1,           0,        -1 },
 +	{ "Gsimplecal", NULL,     NULL,           0,         0,          1,          0,           1,        -1 },
++	{ "kitty",      NULL,     NULL,           0,         0,          0,          1,           0,        -1 },
 +	{ NULL,         NULL,     "Event Tester", 0,         0,          0,          0,           1,        -1 }, /* xev */
  };
  
