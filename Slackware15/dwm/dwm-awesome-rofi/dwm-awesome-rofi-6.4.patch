@@ -81,7 +81,7 @@
 +	{ "Firefox",    NULL,     NULL,           0,         0,          0,          0,          -1,        -1 },
 +	{ "Gvim",       NULL,     NULL,           0,         0,          0,          0,           1,        -1 },
 +	{ "kitty",      NULL,     NULL,           0,         0,          0,          1,           0,        -1 },
-+	{ "gsimplecal", NULL,     NULL,           0,         0,          1,          0,           1,        -1 },
++	{ "Gsimplecal", NULL,     NULL,           0,         0,          1,          0,           1,        -1 },
 +	{ NULL,         NULL,     "Event Tester", 0,         0,          0,          0,           1,        -1 }, /* xev */
  };
  
