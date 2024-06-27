@@ -132,7 +132,7 @@ map pp paste
 map po paste+overwrite
 
 # create new file or folder
-map a push :mkdir<space>""<left>
+map <f-7> push :mkdir<space>""<left>
 map T push :%touch<space>
 
 # execute current file (must be executable)
