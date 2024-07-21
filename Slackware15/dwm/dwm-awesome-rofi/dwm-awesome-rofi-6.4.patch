@@ -52,7 +52,7 @@
 +	"wireplumber", NULL,
 +	"pipewire-pulse", NULL,
 +	"dwmblocks", NULL,
-+	"sh", "-c", "sleep 9; kill -44 $(pidof dwmblocks)", NULL,
++	"sh", "-c", "sleep 10; kill -44 $(pidof dwmblocks)", NULL,
 +	"nm-applet", NULL,
 +	"fcitx", NULL,
 +	"hp-systray", "-x", NULL,
