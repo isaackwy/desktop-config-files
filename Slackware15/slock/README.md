@@ -2,9 +2,9 @@ Patches for slock 1.5.
 Note that my dwm patches invoke xsecurelock (rather than slock) as the screen locker.
 
 ## Apply patches in the following order:
-slock-background-dwmlogo  
-slock-showtime  
-matcha-color-text
+1. slock-background-dwmlogo  
+2. slock-showtime  
+3. matcha-color-text
 
 slock-background-dwmlogo already integrates [config.mk.patch](https://slackbuilds.org/slackbuilds/15.0/desktop/slock/patches/) from SlackBuilds.  
 Therefore, the slock SlackBuild must not run config.mk.patch.  
