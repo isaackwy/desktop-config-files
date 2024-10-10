@@ -1,6 +1,6 @@
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,34 +1,77 @@
+@@ -1,34 +1,79 @@
  /* See LICENSE file for copyright and license details. */
  
 +#define SESSION_FILE "/tmp/dwm-session"
@@ -57,6 +57,8 @@
 +	"sh", "-c", "pkill -15 opensnitch-ui; opensnitch-ui", NULL,
 +	"sh", "-c", "daemon -rB --pidfiles=~/.run --name=sun-daemon sun-daemon", NULL,
 +	"sun-gtk", NULL,
++	"sh", "-c", "xset dpms 3600 3600 3600", NULL,
++	"sh", "-c", "xset s 3600 3600", NULL,
 +	NULL /* terminate */
  };
  
@@ -85,7 +87,7 @@
  };
  
  /* layout(s) */
-@@ -40,12 +83,15 @@
+@@ -40,12 +85,15 @@
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -103,7 +105,7 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -55,14 +101,22 @@
+@@ -55,14 +103,22 @@
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
@@ -129,7 +131,7 @@
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -70,12 +124,18 @@
+@@ -70,12 +126,18 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -150,7 +152,7 @@
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-@@ -84,6 +144,9 @@
+@@ -84,6 +146,9 @@
  	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -160,7 +162,7 @@
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,7 +156,7 @@
+@@ -93,7 +158,7 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -169,7 +171,7 @@
  };
  
  /* button definitions */
-@@ -102,8 +165,13 @@
+@@ -102,8 +167,13 @@
  	/* click                event mask      button          function        argument */
  	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -184,7 +186,7 @@
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-@@ -112,4 +180,3 @@
+@@ -112,4 +182,3 @@
  	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
