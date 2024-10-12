@@ -10,6 +10,15 @@ set cleaner ctpvclear
 &ctpv -s $id
 &ctpvquit $id
 
+# Current directory bar
+# Adapted from: https://codeberg.org/tplasdio/lf-config
+set promptfmt "
+\033[38;48;2;40;47;62m
+\033[38;2;255;255;255m %w 
+\033[38;2;40;47;62;48;2;58;67;89m
+\033[38;2;255;255;255m %f 
+\033[;38;2;58;67;89;49m\033[m"
+
 # open various file types 
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
