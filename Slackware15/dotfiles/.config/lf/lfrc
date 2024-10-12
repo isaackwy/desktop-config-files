@@ -11,7 +11,7 @@ set cleaner ctpvclear
 &ctpvquit $id
 
 # Current directory bar
-# Adapted from: https://codeberg.org/tplasdio/lf-config
+# Adapted from tplasdio's lf config: https://codeberg.org/tplasdio/lf-config
 set promptfmt "
 \033[38;48;2;40;47;62m
 \033[38;2;255;255;255m %w 
