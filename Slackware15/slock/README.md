@@ -18,7 +18,7 @@ The dwm logo does not appear until the user has pressed a key.
 
 ## slock-showtime
 This is the [showtime](https://tools.suckless.org/slock/patches/showtime/) patch from Suckless's website.  
-However, I have placed the current date and time on the top of the screen (instead of on the centre, as per the patch's default).  
+However, I have placed the current date and time at the top of the screen (instead of at the centre, as per the patch's default).  
 The date and time is of the format "ddd mm dd yyyy hh:mm" - for example, Fri Oct 04 2024 14:15
 
 ## matcha-color-text
