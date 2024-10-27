@@ -1,5 +1,5 @@
 Patches for slock 1.5.  
-Note that my dwm patches invoke xsecurelock (rather than slock) as the screen locker.
+Note that my dwm patches currently invoke xsecurelock (rather than slock) as the screen locker.
 
 ## Apply patches in the following order:
 1. slock-background-dwmlogo  
