@@ -46,7 +46,7 @@
 +	"picom", NULL,
 +	"mpd", NULL,
 +	"sh", "-c", "[ ! $(pidof conky) ] && conky", NULL,
-+	"sh", "-c", "xwallpaper --center ~/Wallpaper/Symphony_1680x1050.jpg", NULL,
++	"sh", "-c", "xwallpaper --center ~/Wallpapers/Symphony_1680x1050.jpg", NULL,
 +	"dunst", NULL,
 +	"pipewire", NULL,
 +	"wireplumber", NULL,
