@@ -6,7 +6,7 @@
  
 +/*Font settings for the time text*/
 +static const float textsize=64.0;
-+static const char* textfamily="noto sans";
++static const char* textfamily="ubuntu";
 +static const double textcolorred=255;
 +static const double textcolorgreen=255;
 +static const double textcolorblue=255;
