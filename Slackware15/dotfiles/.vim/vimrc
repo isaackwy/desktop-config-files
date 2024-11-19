@@ -12,15 +12,17 @@ set expandtab
 " enable syntax
 syntax enable
 
-" Use the breezy theme in vim terminal. Use the PaperColor theme in gvim.
-" https://github.com/fneu/breezy 
-" https://github.com/NLKNguyen/papercolor-theme/
-" https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/papercolor.vim
+" breezy color scheme (for vim terminal)
+" https://github.com/fneu/breezy
+
+" seoulbones color scheme (for gvim)
+" Use google_dark as the airline theme
+" https://github.com/zenbones-theme/zenbones.nvim/blob/main/colors/seoulbones.vim
+" https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/google_dark.vim
+
 if has('gui_running')
-  set t_Co=256
-  colorscheme PaperColor
-  set background=light
-  let g:airline_theme='papercolor'
+  colorscheme seoulbones
+  let g:airline_theme='google_dark'
 else
   colorscheme breezy
   set termguicolors "
