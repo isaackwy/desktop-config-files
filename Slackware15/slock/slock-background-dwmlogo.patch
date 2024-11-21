@@ -17,8 +17,8 @@
  /* treat a cleared input like a wrong password (color) */
  static const int failonclear = 1;
 +
-+/* Background image path. I am not showing it to the public. */
-+static const char* background_image = "";
++/* Background image path. Replace 'user' with your username */
++static const char* background_image = "/home/user/Wallpapers/Europapa_1680x1050.jpg";
 +
 +/* insert grid pattern with scale 1:1, the size can be changed with logosize */
 +static const int logosize = 28;
