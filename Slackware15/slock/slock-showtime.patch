@@ -71,7 +71,7 @@
 +{
 +	static char tm[22] = "", tm_formatted[22] = "";
 +	int xpos, ypos;
-+	xpos = DisplayWidth(dpy, screen)/3.4;
++	xpos = DisplayWidth(dpy, screen)/3.35;
 +	ypos = 100;
 +	strftime(tm, sizeof(tm), "%a %b %d %Y %R", &time);
 +	sprintf(tm_formatted, "%s", tm);
