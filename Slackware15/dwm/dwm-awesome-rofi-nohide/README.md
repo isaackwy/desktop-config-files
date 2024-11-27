@@ -21,6 +21,7 @@ This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaack
 - [truecenteredtitle](https://dwm.suckless.org/patches/truecenteredtitle/)  
 - [use-mod4](https://slackbuilds.org/slackbuilds/15.0/desktop/dwm/sbo-patches/use-mod4.patch)  
 - [replace-dmenu-rofi](https://slackbuilds.org/slackbuilds/15.0/desktop/dwm/sbo-patches/replace-dmenu-rofi.patch)  
+- [viewontag](https://dwm.suckless.org/patches/viewontag/dwm-viewontag-20210312-61bb8b2.diff) - follow window to the tag it is being moved to (except the "all" tag)  
 - [winicon](https://dwm.suckless.org/patches/winicon/)  
 
 However, this patch does not contain the bstackhoriz layout from the [bottomstack](https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff) patch.  

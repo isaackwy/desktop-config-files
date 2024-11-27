@@ -1,6 +1,6 @@
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,34 +1,81 @@
+@@ -1,34 +1,82 @@
  /* See LICENSE file for copyright and license details. */
  
 +#define SESSION_FILE "/tmp/dwm-session"
@@ -17,6 +17,7 @@
 +static const int showsystray        = 1;        /* 0 means no systray */
  static const int showbar            = 1;        /* 0 means no bar */
  static const int topbar             = 1;        /* 0 means bottom bar */
++static const Bool viewontag         = True;     /* Switch view on tag switch */
 -static const char *fonts[]          = { "monospace:size=10" };
 -static const char dmenufont[]       = "monospace:size=10";
 -static const char col_gray1[]       = "#222222";
@@ -89,7 +90,7 @@
  };
  
  /* layout(s) */
-@@ -40,12 +87,15 @@
+@@ -40,12 +88,15 @@
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -107,7 +108,7 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -55,27 +105,43 @@
+@@ -55,27 +106,43 @@
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
@@ -158,7 +159,7 @@
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-@@ -84,6 +150,12 @@
+@@ -84,6 +151,12 @@
  	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -171,7 +172,7 @@
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,7 +165,7 @@
+@@ -93,7 +166,7 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -180,7 +181,7 @@
  };
  
  /* button definitions */
-@@ -102,8 +174,13 @@
+@@ -102,8 +175,13 @@
  	/* click                event mask      button          function        argument */
  	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -195,7 +196,7 @@
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-@@ -112,4 +189,3 @@
+@@ -112,4 +190,3 @@
  	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
@@ -2219,7 +2220,16 @@ index 4bcd5ad..71aefa2 100644
  	if (fork() == 0) {
  		if (dpy)
  			close(ConnectionNumber(dpy));
-@@ -1669,37 +2716,66 @@
+@@ -1655,6 +2702,8 @@
+ 		selmon->sel->tags = arg->ui & TAGMASK;
+ 		focus(NULL);
+ 		arrange(selmon);
++		if (viewontag && ((arg->ui & TAGMASK) != TAGMASK))
++			view(arg);
+ 	}
+ }
+ 
+@@ -1669,37 +2718,66 @@
  void
  tile(Monitor *m)
  {
@@ -2300,7 +2310,7 @@ index 4bcd5ad..71aefa2 100644
  	arrange(selmon);
  }
  
-@@ -1718,6 +2794,28 @@
+@@ -1718,6 +2796,28 @@
  }
  
  void
@@ -2329,7 +2339,7 @@ index 4bcd5ad..71aefa2 100644
  toggletag(const Arg *arg)
  {
  	unsigned int newtags;
-@@ -1736,15 +2834,65 @@
+@@ -1736,15 +2836,65 @@
  toggleview(const Arg *arg)
  {
  	unsigned int newtagset = selmon->tagset[selmon->seltags] ^ (arg->ui & TAGMASK);
@@ -2395,7 +2405,7 @@ index 4bcd5ad..71aefa2 100644
  unfocus(Client *c, int setfocus)
  {
  	if (!c)
-@@ -1763,8 +2911,23 @@
+@@ -1763,8 +2913,23 @@
  	Monitor *m = c->mon;
  	XWindowChanges wc;
  
@@ -2419,7 +2429,7 @@ index 4bcd5ad..71aefa2 100644
  	if (!destroyed) {
  		wc.border_width = c->oldbw;
  		XGrabServer(dpy); /* avoid race conditions */
-@@ -1778,9 +2941,12 @@
+@@ -1778,9 +2943,12 @@
  		XUngrabServer(dpy);
  	}
  	free(c);
@@ -2435,7 +2445,7 @@ index 4bcd5ad..71aefa2 100644
  }
  
  void
-@@ -1795,11 +2961,18 @@
+@@ -1795,11 +2963,18 @@
  		else
  			unmanage(c, 0);
  	}
@@ -2454,7 +2464,7 @@ index 4bcd5ad..71aefa2 100644
  	Monitor *m;
  	XSetWindowAttributes wa = {
  		.override_redirect = True,
-@@ -1810,10 +2983,15 @@
+@@ -1810,10 +2985,15 @@
  	for (m = mons; m; m = m->next) {
  		if (m->barwin)
  			continue;
@@ -2471,7 +2481,7 @@ index 4bcd5ad..71aefa2 100644
  		XMapRaised(dpy, m->barwin);
  		XSetClassHint(dpy, m->barwin, &ch);
  	}
-@@ -1990,6 +3168,125 @@
+@@ -1990,6 +3170,125 @@
  	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
  		strcpy(stext, "dwm-"VERSION);
  	drawbar(selmon);
@@ -2597,7 +2607,7 @@ index 4bcd5ad..71aefa2 100644
  }
  
  void
-@@ -2002,6 +3299,13 @@
+@@ -2002,6 +3301,13 @@
  }
  
  void
@@ -2611,7 +2621,7 @@ index 4bcd5ad..71aefa2 100644
  updatewindowtype(Client *c)
  {
  	Atom state = getatomprop(c, netatom[NetWMState]);
-@@ -2009,8 +3313,10 @@
+@@ -2009,8 +3315,10 @@
  
  	if (state == netatom[NetWMFullscreen])
  		setfullscreen(c, 1);
@@ -2624,7 +2634,7 @@ index 4bcd5ad..71aefa2 100644
  }
  
  void
-@@ -2035,15 +3341,171 @@
+@@ -2035,15 +3343,171 @@
  void
  view(const Arg *arg)
  {
@@ -2797,7 +2807,7 @@ index 4bcd5ad..71aefa2 100644
  Client *
  wintoclient(Window w)
  {
-@@ -2057,6 +3519,16 @@
+@@ -2057,6 +3521,16 @@
  	return NULL;
  }
  
@@ -2814,7 +2824,7 @@ index 4bcd5ad..71aefa2 100644
  Monitor *
  wintomon(Window w)
  {
-@@ -2110,6 +3582,22 @@
+@@ -2110,6 +3584,22 @@
  	return -1;
  }
  
@@ -2837,7 +2847,7 @@ index 4bcd5ad..71aefa2 100644
  void
  zoom(const Arg *arg)
  {
-@@ -2133,15 +3621,103 @@
+@@ -2133,15 +3623,103 @@
  		fputs("warning: no locale support\n", stderr);
  	if (!(dpy = XOpenDisplay(NULL)))
  		die("dwm: cannot open display");
