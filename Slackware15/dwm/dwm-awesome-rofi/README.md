@@ -60,5 +60,5 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 + `Win-j`/`Win-k`: **Cycle through the visible windows in the current workspace**
 + `Win-Alt-j`/`Win-Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**
 + `Win-e`: **Hide the current active window**
-+ `Win-s`: **Unhide (show) a window made visible by** `Win-Alt-j`/`Win-Alt-k`
-+ `Win-Shift-s`: **Show all windows (including hidden ones) in the current workspace**
++ `Win-w`: **Unhide (show) a window made visible by** `Win-Alt-j`/`Win-Alt-k`
++ `Win-Shift-w`: **Show all windows (including hidden ones) in the current workspace**
