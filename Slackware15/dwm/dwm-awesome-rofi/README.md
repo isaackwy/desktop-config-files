@@ -1,5 +1,5 @@
 ## Patches (in alphabetical order):
-- [awesomebar](http://dwm.suckless.org/patches/awesomebar/)  
+- [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (also includes a 'hide other windows' function adapted from [theniceboy](https://github.com/theniceboy/dwm-hide-and-restore-win.diff)'s patch)  
 - [bidi](https://dwm.suckless.org/patches/bidi) - Right-to-left language support (only for title)  
 - [center](https://dwm.suckless.org/patches/center/) - centre all floating windows by default (except for gsimplecal)  
 - [cool autostart](https://dwm.suckless.org/patches/cool_autostart/) - program autostarter (which terminates processes upon exiting dwm)  
@@ -60,5 +60,6 @@ tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
 + `Win-j`/`Win-k`: **Cycle through the visible windows in the current workspace**
 + `Win-Alt-j`/`Win-Alt-k`: **Cycle through all windows (visible and hidden ones) in the current workspace**
 + `Win-e`: **Hide the current active window**
++ `Win-Shift-e`: **Hide all other windows (except the currently active one)**
 + `Win-w`: **Unhide (show) a window made visible by** `Win-Alt-j`/`Win-Alt-k`
 + `Win-Shift-w`: **Show all windows (including hidden ones) in the current workspace**
