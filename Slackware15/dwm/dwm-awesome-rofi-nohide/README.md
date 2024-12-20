@@ -8,7 +8,7 @@ This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaack
 - [cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/)  
 - [desktop icons](https://github.com/bakkeby/patches/blob/master/dwm/dwm-desktop_icons-6.3.diff) - allow file managers to manage the desktop  
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)  
-- [movestack](https://raw.githubusercontent.com/bakkeby/dwm-flexipatch/master/patch/movestack.c) - XMonad-like behaviour for moving clients within the stack   
+- [movestack](https://raw.githubusercontent.com/bakkeby/dwm-flexipatch/master/patch/movestack.c) - XMonad-like behaviour for moving clients within the stack  
 - [pertag-perseltag](https://dwm.suckless.org/patches/pertag/dwm-pertag-perseltag-6.2.diff) - changes affect all selected tags instead of only the first selected one  
 - [quitprompt](https://dwm.suckless.org/patches/quitprompt/) - `Win-Shift-q` now prompts the user for exit options (reload/logout/reboot/shutdown)  
 - [restoreafterrestart](https://dwm.suckless.org/patches/restoreafterrestart/) - this patch keeps all the windows in their previous tags after restarting dwm  
@@ -41,6 +41,7 @@ In addition, this patch underlines the current active window (feature inspired b
 + `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**
 + `Win-Shift-KP_Up`: **increase volume by 1**
 + `Win-Shift-KP_Down`: **decrease volume by 1**
++ `Win-s`: **Display current window name (the window name displayed by awesomebar can become too short when there are too many tabs)**
 
 ## Layouts (with additional keybindings) 
 

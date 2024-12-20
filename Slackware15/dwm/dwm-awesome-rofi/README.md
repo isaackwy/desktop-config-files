@@ -39,6 +39,7 @@ In addition, this patch underlines the current active window (feature inspired b
 + `Win-x`: **lock screen with [xsecurelock](https://github.com/google/xsecurelock)**
 + `Win-Shift-KP_Up`: **increase volume by 1**
 + `Win-Shift-KP_Down`: **decrease volume by 1**
++ `Win-s`: **Display current window name (the window name displayed by awesomebar can become too short when there are too many tabs)**
 
 ## Layouts (with additional keybindings) 
 
