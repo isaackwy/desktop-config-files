@@ -5,4 +5,4 @@ I have adapted Matt Snider's [passmenu-autotype](https://github.com/matt-snider/
 However, my script launches rofi rather than dmenu.
 
 The statusbar subfolder contains scripts for dwmblocks.  
-The nsxiv-rifle-old subfolder contains a script for display images (which I no longer use).
+The nsxiv-rifle-old subfolder contains a script for displaying images (which I no longer use).
