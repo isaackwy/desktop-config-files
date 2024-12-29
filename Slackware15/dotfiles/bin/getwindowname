@@ -1,4 +1,5 @@
 #!/bin/sh
 
-# Get current window name
-echo $(xdotool getwindowfocus getwindowname) | rofi -dmenu -p 'Current window name' -no-fixed-num-lines -kb-accept-entry '!Super+s' -timeout-delay 1 -steal-focus
+# Display current window title for 1.5 seconds 
+ACTIVEWINDOW=$(xdotool getwindowfocus getwindowname)
+notify-send "Current window title" "$ACTIVEWINDOW" -t 1500
