@@ -243,8 +243,6 @@
  .SH ISSUES
  Java applications which use the XToolkit/XAWT backend may draw grey windows
  only. The XToolkit/XAWT backend breaks ICCCM-compliance in recent JDK 1.5 and early
-diff --git a/config.mk b/config.mk
-index b6eb7e0..f3c01b0 100644
 --- a/config.mk
 +++ b/config.mk
 @@ -10,6 +10,8 @@
@@ -270,8 +268,6 @@ index b6eb7e0..f3c01b0 100644
  
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=200809L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-diff --git a/drw.c b/drw.c
-index 4cdbcbe..9b474c5 100644
 --- a/drw.c
 +++ b/drw.c
 @@ -4,6 +4,7 @@
@@ -392,8 +388,6 @@ index 4cdbcbe..9b474c5 100644
  void
  drw_map(Drw *drw, Window win, int x, int y, unsigned int w, unsigned int h)
  {
-diff --git a/drw.h b/drw.h
-index 4bcd5ad..71aefa2 100644
 --- a/drw.h
 +++ b/drw.h
 @@ -21,6 +21,7 @@ typedef struct {
