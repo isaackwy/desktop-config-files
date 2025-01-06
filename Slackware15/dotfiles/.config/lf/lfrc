@@ -124,9 +124,13 @@ cmd paste+overwrite %{{
     fi
 }}
 
-# navigation key bindings (~ for $HOME, g/ for root directory)
-map ~ cd ~
+# navigation key bindings (gh for $HOME, g/ for root directory)
+map gh cd ~
 map g/ cd /
+
+# cut (move) files
+map d
+map dd cut
 
 # yank/copy files
 map y
