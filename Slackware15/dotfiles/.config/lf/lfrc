@@ -124,9 +124,10 @@ cmd paste+overwrite %{{
     fi
 }}
 
-# navigation key bindings (gh for $HOME, g/ for root directory)
+# navigation key bindings (gh for $HOME, g/ for root directory, gi for /media/$USER)
 map gh cd ~
 map g/ cd /
+map gi %lf -remote "send $id cd /media/$USER"
 
 # cut (move) files
 map d
