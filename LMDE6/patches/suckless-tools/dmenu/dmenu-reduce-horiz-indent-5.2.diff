@@ -1,0 +1,11 @@
+--- a/dmenu/dmenu.c
++++ b/dmenu/dmenu.c
+@@ -174,7 +174,7 @@
+ 			drawitem(item, x - promptw, y += bh, mw);
+ 	} else if (matches) {
+ 		/* draw horizontal list */
+-		x += inputw;
++		x += inputw / 1.25;
+ 		w = TEXTW("<");
+ 		if (curr->left) {
+ 			drw_setscheme(drw, scheme[SchemeNorm]);

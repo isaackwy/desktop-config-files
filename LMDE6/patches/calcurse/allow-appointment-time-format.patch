@@ -1,0 +1,142 @@
+This patch for allowing the 12-hour appointment time format is based on the following pull request:
+https://github.com/lfos/calcurse/pull/339
+--- a/src/apoint.c
++++ b/src/apoint.c
+@@ -42,6 +42,8 @@
+ #include "calcurse.h"
+ #include "sha1.h"
+ 
++#define APPT_TIME_LENGTH 25
++
+ llist_ts_t alist_p;
+ 
+ void apoint_free(struct apoint *apt)
+@@ -134,16 +136,14 @@
+ 	} else {
+ 		t = o->start;
+ 		localtime_r(&t, &lt);
+-		snprintf(start, HRMIN_SIZE, "%02u:%02u", lt.tm_hour,
+-			 lt.tm_min);
++		strftime(start, APPT_TIME_LENGTH, conf.timefmt, &lt);
+ 	}
+ 	if (o->start + o->dur > day + DAYLEN(day)) {
+ 		strncpy(end, "..:..", 6);
+ 	} else {
+ 		t = o->start + o->dur;
+ 		localtime_r(&t, &lt);
+-		snprintf(end, HRMIN_SIZE, "%02u:%02u", lt.tm_hour,
+-			 lt.tm_min);
++		strftime(end, APPT_TIME_LENGTH, conf.timefmt, &lt);
+ 	}
+ }
+
+--- a/src/calcurse.h
++++ b/src/calcurse.h
+@@ -111,9 +111,6 @@
+ #define STATUSHEIGHT  2
+ #define MAX_NOTESIZ   40
+ 
+-/* Format for appointment hours is: HH:MM */
+-#define HRMIN_SIZE 6
+-
+ /* Maximum number of colors available. */
+ #define NBUSERCOLORS  6
+ 
+@@ -306,6 +303,7 @@
+ 	int input_datefmt;	/* format for reading date */
+ 	enum pos heading_pos; /* left/center/right for heading in appts panel */
+ 	char day_heading[BUFSIZ];	/* format for displaying heading in appts panel */
++	char timefmt[BUFSIZ];	/* format for displaying time in appts panel*/
+ };
+ 
+ #define EMPTY_DAY_DEFAULT "--"
+@@ -338,6 +336,9 @@
+ /* Day heading default format. */
+ #define DAY_HEADING_DEFAULT "%B %e, %Y"
+ 
++/* Appointment time default format. */
++#define APPT_TIME_DEFAULT "%H:%M"
++
+ /*
+  * Calcurse representation of the date of a day in the calendar.
+  * When time_t is a 32-bit signed integer, the year range is 1902 - 2037.
+--- a/src/config.c
++++ b/src/config.c
+@@ -109,6 +109,7 @@
+ 	{"format.inputdate", config_parse_input_datefmt, config_serialize_input_datefmt, NULL},
+ 	{"format.notifydate", CONFIG_HANDLER_STR(nbar.datefmt)},
+ 	{"format.notifytime", CONFIG_HANDLER_STR(nbar.timefmt)},
++	{"format.appointmenttime", CONFIG_HANDLER_STR(conf.timefmt)},
+ 	{"format.outputdate", config_parse_output_datefmt, config_serialize_output_datefmt, NULL},
+ 	{"format.dayheading", CONFIG_HANDLER_STR(conf.day_heading)},
+ 	{"general.autogc", CONFIG_HANDLER_BOOL(conf.auto_gc)},
+--- a/src/custom.c
++++ b/src/custom.c
+@@ -545,6 +545,7 @@
+ 	INPUT_DATE_FMT,
+ 	HEADING_POS,
+ 	DAY_HEADING_FMT,
++	APPOINTMENT_TIME_FMT,
+ 	NB_OPTIONS
+ };
+ 
+@@ -573,7 +574,8 @@
+ 		"format.outputdate = ",
+ 		"format.inputdate = ",
+ 		"appearance.headingposition = ",
+-		"format.dayheading = "
++		"format.dayheading = ",
++		"format.appointmenttime = "
+ 	};
+ 	const char *panel;
+ 	const char *position;
+@@ -746,6 +748,14 @@
+ 		mvwaddstr(win, y + 1, XPOS,
+ 			  _("(Format of the date displayed in the appointments panel)"));
+ 		break;
++	case APPOINTMENT_TIME_FMT:
++		custom_apply_attr(win, ATTR_HIGHEST);
++		mvwaddstr(win, y, XPOS + strlen(opt[APPOINTMENT_TIME_FMT]),
++			  conf.timefmt);
++		custom_remove_attr(win, ATTR_HIGHEST);
++		mvwaddstr(win, y + 1, XPOS,
++			  _("(Format of the time displayed in the appointments panel)"));
++		break;
+ 	}
+ 
+ 	if (hilt)
+@@ -771,6 +781,8 @@
+ 	    _("Enter a text string (an empty string for the default text)");
+ 	const char *output_datefmt_str =
+ 	    _("Enter the date format (see 'man 3 strftime' for possible formats) ");
++	const char *output_timefmt_str =
++	    _("Enter the time format (see 'man 3 strftime' for possible formats) ");
+ 	const char *input_datefmt_prefix = _("Enter the date format: ");
+ 	const char *periodic_save_str =
+ 	    _("Enter the delay, in minutes, between automatic saves (0 to disable) ");
+@@ -893,6 +905,15 @@
+ 			conf.day_heading[BUFSIZ - 1] = '\0';
+ 		}
+ 		break;
++	case APPOINTMENT_TIME_FMT:
++		status_mesg(output_timefmt_str, "");
++		strncpy(buf, conf.timefmt, BUFSIZ);
++		buf[BUFSIZ - 1] = '\0';
++		if (updatestring(win[STA].p, &buf, 0, 1) == 0) {
++			strncpy(conf.timefmt, buf, BUFSIZ);
++			conf.timefmt[BUFSIZ - 1] = '\0';
++		}
++		break;
+ 	}
+ 
+ 	mem_free(buf);
+--- a/src/vars.c
++++ b/src/vars.c
+@@ -140,6 +140,7 @@
+ 	conf.input_datefmt = 1;
+ 	conf.heading_pos = RIGHT;
+ 	strcpy(conf.day_heading, DAY_HEADING_DEFAULT);
++	strcpy(conf.timefmt, APPT_TIME_DEFAULT);
+ 
+ 	datefmt_str[0] = _("mm/dd/yyyy");
+ 	datefmt_str[1] = _("dd/mm/yyyy");
