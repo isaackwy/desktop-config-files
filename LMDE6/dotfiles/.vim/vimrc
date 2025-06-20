@@ -1,0 +1,42 @@
+" Enable backup and undo files (swap files are already enabled by default on Debian)
+" Also, place backup, swap and undo files in ~/.vim/backup
+set backup
+set undofile
+set backupdir=~/.vim/backup//
+set directory=~/.vim/backup//
+set undodir=~/.vim/backup//
+
+" Interface settings: set gui font, show line numbers
+set guifont=Monospace\ 12
+set number
+
+" Set indentation and tab length to 4
+set tabstop=4
+set shiftwidth=4
+
+" Use space characters instead of tabs.
+set expandtab
+
+" Enable syntax
+syntax enable
+
+" Vim status line should not be transparent
+set laststatus=2
+
+" seoul256 color scheme (for vim terminal)
+" https://github.com/junegunn/seoul256.vim/
+
+" seoulbones color scheme (for gvim)
+" https://github.com/zenbones-theme/zenbones.nvim/blob/main/colors/seoulbones.vim
+
+if has('gui_running')
+  colorscheme seoulbones
+  let g:lightline = {
+    \ 'colorscheme': 'seoulbones',
+    \ }
+else
+  colorscheme seoul256
+  let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ }
+endif

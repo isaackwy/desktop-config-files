@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Clickable options. Code taken from Luke Smith: 
+# https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-clock
+
+case $BLOCK_BUTTON in
+    1) [ ! $(pidof gsimplecal) ] && setsid -f gsimplecal || pkill gsimplecal ;;
+    2) setsid -f kitty -e calcurse;; 
+    3) notify-send "📅 Time/date module" "\- Left click to open gsimplecal.\n- Left click again (while gsimplecal is running) to close the calendar.\n- Middle click to open calcurse." ;;
+esac
+
+# Display date (month+day) and time
+echo "^c#abe9b3^ 󰃰 $(date "+%a %b %d %R")"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Display current window title for 1.5 seconds 
+ACTIVEWINDOW=$(xdotool getwindowfocus getwindowname)
+notify-send "Current window title" "$ACTIVEWINDOW" -t 1500

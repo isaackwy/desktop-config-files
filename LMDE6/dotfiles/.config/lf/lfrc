@@ -1,0 +1,163 @@
+# Basic vars
+set shell bash
+set ifs "\n"
+set autoquit
+set icons
+
+# ctpv (File previewer)
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+# Current directory bar
+# Adapted from tplasdio's lf config: https://codeberg.org/tplasdio/lf-config
+set promptfmt "
+\033[38;48;2;52;101;164m
+\033[38;2;255;255;255m %w 
+\033[38;2;52;101;164;48;2;25;156;168m
+\033[38;2;255;255;255m %f 
+\033[;38;2;25;156;168;49m\033[m"
+
+# open various file types 
+cmd open ${{
+    case $(file --mime-type "$(readlink -f $f)" -b) in
+        image/*) vimiv $f ;;
+        text/*|inode/x-empty) $EDITOR $fx ;;
+        application/pdf|application/epub*) setsid -f tabbed -b -c -r 2 zathura -e '' $fx >/dev/null 2>&1 ;;
+        application/octet-stream|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.ms-excel) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+        video/*) mpv $f ;;
+    esac
+}}
+
+# custom file opener, inspired by ranger
+# The user may enter in one of the 4 following options (without quotations): "", "f", "program_name", "f program_name"
+cmd open_with ${{
+
+    # blank - open with default application (the upcoming window will be swallowed)
+    if [ "$1" = "" ]; then xdg-open $f
+
+    # f - open with default application, and fork the process into the background (+do not swallow the upcoming window)
+    elif [ "$1" = "f" ] && [ "$2" = "" ]; then setsid -f xdg-open $f >/dev/null 2>&1
+
+    # program_name - open with custom application (+swallow the upcoming window)
+    elif [ "$2" = "" ]; then $1 $f
+
+    # f program_name - fork the custom application into the background (+do not swallow the upcoming window)
+    elif [ "$1" = "f" ] && [ "$3" = "" ]; then setsid -f $2 $f >/dev/null 2>&1
+
+    # Otherwise, exit the file opener
+    else exit 0; fi
+}}
+
+# extract archives
+# blank (default) for extracting to the current folder. Enter in a folder name for extracting to a subdirectory.
+cmd extract ${{
+	case $(file --mime-type "$(readlink -f $f)" -b) in
+        application/gzip|application/x-tar|application/x-xz|application/x-bzip2)
+            case "$1" in
+                "") tar -xvf $fx ;;
+                *) mkdir $1 && tar -xvf $fx -C $1;;
+            esac ;;
+        application/zip)
+            case "$1" in
+                "") unzip $fx ;;
+                *) mkdir $1 && unzip $fx -d $1;;
+            esac ;;
+        application/x-rpm)
+            case "$1" in
+                "") bsdtar -xvf $fx ;;
+                *) mkdir $1 && bsdtar -xvf $fx -C $1;;
+            esac;;
+        application/vnd.debian.binary-package)
+            case "$1" in
+                "") ar xv $fx ;;
+                *) mkdir $1 && ar xv $fx --output $1;;
+            esac;;
+    esac
+}}
+
+# compress current file or selected files with tar
+# blank (default) creates a tarball of the format filename.tar.gz 
+# Otherwise, enter in a custom tarball name (ex. entering in newarchive will create a tarball named newarchive.tar.gz)
+cmd compress ${{
+    filename=$(basename -a -- $fx | head -c-1)
+    no_extension=${filename%.*}
+    case $(file --mime-type "$(readlink -f $filename)" -b) in
+        inode/directory)
+            case "$1" in
+                "") tar czvf $filename.tar.gz $filename ;;         # folders do not need their extensions removed 
+                *) tar czvf $1.tar.gz $filename ;;
+            esac ;;
+        *)
+            case "$1" in
+                "") tar czvf $no_extension.tar.gz $filename ;;     # exclude the extension of $filename in creating the tarball $filename.tar.gz
+                *) tar czvf $1.tar.gz $filename ;;
+            esac ;;
+    esac
+}}
+
+# make file executable or remove executable permission
+cmd chmodplus ${{
+    if [ -x "$fx" ]; then chmod -x "$fx"; else chmod +x "$fx"; fi 
+}}
+
+# create new folder
+cmd mkdir $mkdir -p "$@"
+
+# yank (copy) current directory, path, basename
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+
+# custom paste command (which overwrites existing files)
+cmd paste+overwrite %{{
+    load=$(cat ~/.local/share/lf/files)
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+        cp -R $list .
+    elif [ $mode = 'move' ]; then
+        mv $list .
+        rm ~/.local/share/lf/files
+        lf -remote 'send clear'
+    fi
+}}
+
+# navigation key bindings (gh for $HOME, g/ for root directory, gi for /media/$USER)
+map gh cd ~
+map g/ cd /
+map gi %lf -remote "send $id cd /media/$USER"
+
+# cut (move) files
+map d
+map dd cut
+
+# yank/copy files
+map y
+map yy copy
+map yd yank-dirname
+map yp yank-path
+map yn yank-basename
+
+# paste files
+map p
+map pp paste
+map po paste+overwrite
+
+# create new file or folder
+map <f-7> push :mkdir<space>""<left>
+map T push :%touch<space>
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+# move files to trash
+map DD %trash-put $fx
+
+# other key bindings
+map o push :open_with<space>
+map E push :extract<space>
+map Z push :compress<space>
+map C chmodplus

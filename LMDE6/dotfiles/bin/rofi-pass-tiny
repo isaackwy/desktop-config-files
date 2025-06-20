@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+userfield=login
+urlfield=url
+
+if [[ -n $DISPLAY ]]; then
+	dmenu="rofi -dmenu -i"
+	xdotool="xdotool type --clearmodifiers --file -"
+	xdoenter="xdotool key Return"
+else
+	echo "Error: No X11 display detected" >&2
+	exit 1
+fi
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=$(printf '%s\n' "${password_files[@]}" | $dmenu "$@")
+
+[[ -n $password ]] || exit
+
+action=$(echo -e "autotype\nlogin\npass\nurl" | $dmenu)
+case "$action" in
+    "autotype") pass show "$password" | { read -r pass ; read -r -d '' rest; echo "$rest" | sed -n "s/${userfield}:\s\?\(.*\)/\1/p" | xargs -i printf '%s\t%s\n' {} "$pass"; } | $xdotool && $xdoenter;;
+    "login") pass show "$password" | { read -r pass ; read -r -d '' rest; echo "$rest" | sed -n "s/${userfield}:\s\?\(.*\)/\1/p"; } | $xdotool ;;
+    "pass") pass show "$password" | { read -r pass; printf %s "$pass"; } | $xdotool ;;
+    "url") pass show "$password" | { read -r pass ; read -r -d '' rest; echo "$rest" | sed -n "s/${urlfield}:\s\?\(.*\)/\1/p"; } | $xdotool ;;
+esac

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Clickable options. Code taken from Luke Smith:
+# https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/statusbar/sb-volume
+case $BLOCK_BUTTON in
+	1) setsid -f pavucontrol ;;
+	2) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+	3) notify-send "📢 Volume module" "\- Shows volume 🔊,   if muted. \n- Left click to open pavucontrol.\n- Middle click to mute.\n- Scroll to change." ;;
+	4) wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ ;;
+	5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- ;;
+esac
+
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+
+# If muted
+[ "$vol" != "${vol%\[MUTED\]}" ] && echo "^c#eba0ac^  "  && exit
+
+vol="${vol#Volume: }"
+
+split() {
+	# For omitting the . without calling and external program.
+	IFS=$2
+	set -- $1
+	printf '%s' "$@"
+}
+
+vol="$(printf "%.0f" "$(split "$vol" ".")")"
+
+# Volume icon taken from waybar (requires FontAwesome)
+case 1 in
+	$((vol >= 70)) ) icon="" ;;
+	$((vol >= 30)) ) icon="" ;;
+	$((vol >= 1)) ) icon="" ;;
+	* ) echo "^c#eba0ac^  " && exit ;;
+esac
+
+# Display volume
+echo "^c#fae3b0^ $icon $vol%"

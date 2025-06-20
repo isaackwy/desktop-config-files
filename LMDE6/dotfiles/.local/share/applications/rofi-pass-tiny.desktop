@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=rofi-pass-tiny
+Exec=/home/username/bin/rofi-pass-tiny
+Comment=Bash script to conveniently handle pass
+Terminal=false
+PrefersNonDefaultGPU=false
+Icon=cinnamon-panel-launcher
+Type=Application
+Name[en_CA]=rofi-pass-tiny
