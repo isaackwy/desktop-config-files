@@ -26,7 +26,7 @@ However, this patch does not contain the bstackhoriz layout from the [bottomstac
 In addition, this patch underlines the current active window (feature inspired by the [underlinetags](https://dwm.suckless.org/patches/underlinetags/) patch).
 
 ## Color theme
-- Mint-Y-Teal
+- Mint-Y-Dark-Teal
 
 ## Runtime dependencies
 - [rofi](https://github.com/davatorium/rofi)  
