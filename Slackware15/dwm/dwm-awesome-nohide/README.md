@@ -1,4 +1,4 @@
-This patch is almost the same as my [dwm-awesome-rofi](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome-rofi). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
+This patch is almost the same as my [dwm-awesome](https://github.com/isaackwy/desktop-preferences/tree/master/dwm/dwm-awesome). However, this dwm build does not have the window hiding feature from the [awesomebar](http://dwm.suckless.org/patches/awesomebar/) patch.
 
 ## Patches (in alphabetical order):
 - [awesomebar](http://dwm.suckless.org/patches/awesomebar/) (however, this dwm build does not hide windows)  
@@ -31,7 +31,7 @@ In addition, this patch underlines the current active window (feature inspired b
 - Matcha-dark-sea. Refer to vinceliuice's gtk [theme](https://github.com/vinceliuice/Matcha-gtk-theme)
 
 ## Requirements
-- [rofi](https://github.com/davatorium/rofi) (of course)  
+- [rofi](https://github.com/davatorium/rofi)  
 - [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
 - imlib2 (due to winicon)  
 - wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
@@ -43,7 +43,7 @@ In addition, this patch underlines the current active window (feature inspired b
 + `Win-Shift-KP_Down`: **decrease volume by 1**
 + `Win-s`: **Display current window name (the window name displayed by awesomebar can become too short when there are too many tabs)**
 
-## Layouts (with additional keybindings) 
+## Layouts (with additional keybindings)
 
 Layouts are in the following order:  
 tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`

@@ -29,7 +29,7 @@ In addition, this patch underlines the current active window (feature inspired b
 - Matcha-dark-sea. Refer to vinceliuice's gtk [theme](https://github.com/vinceliuice/Matcha-gtk-theme)
 
 ## Dependencies
-- [rofi](https://github.com/davatorium/rofi) (of course)  
+- [rofi](https://github.com/davatorium/rofi)  
 - [dmenu](https://tools.suckless.org/dmenu/) (due to the quitprompt patch)  
 - imlib2 (due to winicon)  
 - wireplumber >= 0.4.11 (and by extension, pipewire >= 0.3.52)
@@ -41,7 +41,7 @@ In addition, this patch underlines the current active window (feature inspired b
 + `Win-Shift-KP_Down`: **decrease volume by 1**
 + `Win-s`: **Display current window name (the window name displayed by awesomebar can become too short when there are too many tabs)**
 
-## Layouts (with additional keybindings) 
+## Layouts (with additional keybindings)
 
 Layouts are in the following order:  
 tile: `[]=`, bstack: `TTT`, gaplessgrid: `###`, monocle: `[M]`, floating: `><>`
