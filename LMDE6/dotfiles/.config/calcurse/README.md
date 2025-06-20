@@ -1,1 +1,1 @@
-Since LMDE6 (which is based on Debian 12) has calcurse 4.7.1, an additional patch is needed for displaying the 12-hour appointment format.
+Since LMDE6 (which is based on Debian 12) has calcurse 4.7.1, an additional [patch](https://github.com/isaackwy/desktop-config-files/blob/master/LMDE6/calcurse/allow-appointment-time-format.patch) is needed for displaying the 12-hour appointment format.
